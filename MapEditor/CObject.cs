@@ -12,16 +12,16 @@ namespace MapEditor
         public Rectangle region;
         public Color color;
         public int type;
-        public int name;
+        public int idName;
 
         public int ID { get => id; }
 
-        public CObject(int id, Rectangle region, Color color, int name, int type)
+        public CObject(int id, Rectangle region, Color color, int idName, int type)
         {
             this.id = id;
             this.region = region;
             this.color = color;
-            this.name = name;
+            this.idName = idName;
             this.type = type;
         }
     }

@@ -588,6 +588,7 @@ namespace MapEditor
                 MessageBox.Show("You must load map before you export quadtree", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            saveQuadtree.FileName = Path.GetFileName(openImage.FileName);
             if (saveQuadtree.ShowDialog() == DialogResult.OK)
             {
                 string path = Path.GetDirectoryName(saveQuadtree.FileName);
@@ -599,77 +600,93 @@ namespace MapEditor
                         SaveAll(path, name);
                         break;
                     case 1:
-                        SaveStatic(path, name, false);
+                        SaveStatic(path, name, true);
                         break;
                     case 2:
-                        SaveDynamic(path, name, false);
+                        SaveDynamic(path, name, true);
                         break;
                     default:
                         SaveAll(path, name);
                         break;
                 }
+
             }
         }
 
-        private void SaveDynamic(string path, string name, bool twoFiles)
+        private void SaveDynamic(string path, string name, bool saveObject)
         {
-            QuadNode root = AutoBuild((int)Type.Dynamic);
-            string file;
-            if (twoFiles)
-                file = Path.Combine(path, name + "_dynamic.txt");
-            else file = Path.Combine(path, name + ".txt");
+         
+            QuadNode root = AutoBuild((int)Type.Dynamic, out List<CObject> objs);
+            string file = Path.Combine(path, name + "_dynamic.txt");
+            string fileObject = Path.Combine(path, name + ".txt");
+            if (saveObject) SaveObject(objs, fileObject);
 
-            Save(root, file);
+            SaveQuadTree(root, file);
         }
 
-        private void SaveStatic(string path, string name, bool twoFiles)
+        private void SaveStatic(string path, string name, bool saveObject)
         {
-            QuadNode root = AutoBuild((int)Type.Static);
-            string file;
-            if (twoFiles)
-                file = Path.Combine(path, name + "_static.txt");
-            else file = Path.Combine(path, name + ".txt");
-
-            Save(root, file);
+            QuadNode root = AutoBuild((int)Type.Static, out List<CObject> objs);
+            string file = Path.Combine(path, name + "_static.txt");
+            string fileObject = Path.Combine(path, name + ".txt");
+            if(saveObject) SaveObject(objs, fileObject);
+            SaveQuadTree(root, file);
         }
 
         private void SaveAll(string path, string name)
         {
-            if(!checkBoxOnly.Checked)
+            
+            string fileObject = Path.Combine(path, name + ".txt");
+            if (!checkBoxOnly.Checked)
             {
-                SaveDynamic(path, name, true);
-                SaveStatic(path, name, true);
+                SaveObject(objects.Values.ToList(), fileObject);
+                SaveDynamic(path, name, false);
+                SaveStatic(path, name, false);
                 return;
             }
 
-            QuadNode root = AutoBuild((int)Type.All);
-            string file = Path.Combine(path, name + ".txt");
-
-            Save(root, file);
+            QuadNode root = AutoBuild((int)Type.All, out List<CObject> objs);
+            string file = Path.Combine(path, name + "_all.txt");
+            SaveObject(objs, fileObject);
+            SaveQuadTree(root, file);
         }
 
-        private QuadNode AutoBuild(int type)
+        private QuadNode AutoBuild(int type, out List<CObject> objs)
         {
             QuadNode root = new QuadNode(0, 0, new Rectangle(0, 0, image.Width, image.Height));
+            objs = new List<CObject>();
             if (type != (int)Type.All)
             {
                 foreach (var item in objects)
-                {
                     if (item.Value.type == type)
+                    {
                         root.Build(item.Value);
-                }
+                        objs.Add(item.Value);
+                    }
             }else
                 foreach (var item in objects)
                 {
                     root.Build(item.Value);
+                    objs.Add(item.Value);
                 }
             return root;
         }
 
-        private void Save(QuadNode root,string path)
+        private void SaveQuadTree(QuadNode root,string path)
         {
             StreamWriter stream = new StreamWriter(path);
             root.Save(stream);
+            stream.Close();
+        }
+        private void SaveObject(List<CObject> objs, string path)
+        {
+            StreamWriter stream = new StreamWriter(path);
+            foreach (var item in objs)
+            {
+                stream.Write(item.ID + " " + item.idName + " " + item.type + " " + item.region.X + " " + item.region.Y + " " + item.region.Right + " " + item.region.Bottom);
+                stream.WriteLine();
+                stream.Flush();
+            }
             stream.Close();
         }
 
