@@ -4,7 +4,7 @@ MapEditor Cho Nhập Môn Phát Triển Game
 ![](MapEditor/Resources/Image/LoadTiles.JPG)
 ## 📑 Contents
 * [Features](#-features)
-* [Installation](#-Installation)
+* [Installation](#-installation)
 * [Documents](#-documents)
 * [Build with](#-build-with)
 * [Some Screens](#-some-screens)
@@ -16,7 +16,7 @@ MapEditor Cho Nhập Môn Phát Triển Game
 * [Cut tiles](#Map-Tile)
 * [Export tiles to file txt](#Map-encode)
 * [Add objects to map](#add-objects)
-* [Export objects in map to file](#Object-to)
+* [Export objects in map to file](#Object-file)
 * [Build quatree and export to file](#Quadtree)
 ## ⚙️ Installation
 * Build with visual studio. You can add reference
