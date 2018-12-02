@@ -146,14 +146,14 @@
   </data>
   <data name="bunifuThinButton23.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEsAAAAjCAYAAADc6ffdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFbSURBVGhD7dm/SwJxHMbx/qK2prYmtyZpcWoJoSGXWtoa
-        HAr6MTSEDg46hIPQEBQtURAt0lQ42HSDiSjiIDZ84vl+9UvinfjM97zgQNTl3pwnPLdmsjLFIigWQbEI
-        ikVQLMJCrPvPVztonFnmZt/WT3dSeeDc8/Wi3TYfplW8EGs4HrkvHN5d2lPr3aLBz/ST9MG5v7SbdvJY
-        slz1OLQIsRAKV5XM+4halq0c2fh34mPhckNFiVd+a9jFc83HwlWFy07itXuRbZcLPtbm1a67Z0ky3Phd
-        LLyQ5RSLoFgExSIoFkGxCIpFUCyCYhEUi6BYBMUihFgb5zm310iyEAtrIEYuidcd9W3res/HwrCFgUvi
-        YUHG3O5i4SeIcSvNu3uS/21cLPjqfLs3MTFrCPSR8OAG+/tsRQ6xAJGwxWM5xQ0tzQf+9PBIEJPyzFws
-        WU6xCIpFUCyCYq3M7A+S44JTxAFPlwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAG4AAAAoCAYAAAAfWs+KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVHhe7dstS0NhHIZxP5HNZDPZTGJZsohg0KLFZjAo
+        +BIM4sKCBjEMDIJiEQWxDJOyMNMJKqLIwtDwl/s520HxA+y54frBgbGtXTw7J9wbCVginCnCmSKcKcKZ
+        Ipypf+HOHm5isbkZk/sLMboxwzXkSx3mT9bjuHXeL1Sqwn32uukLy6c7cdm+i+Ljpf8JhkkdrjutWLs4
+        iNrhatWlCqdoOm3I133RjunGSvS+v8pwOoYqivzVb5uxfXVUhtNp03FE/jpvRUzVl8pw47uz6R4HD3po
+        SeH0Aj4IZ4pwpghninCmCGeKcKYIZ4pwpghninCmCGeKcKYIZ4pwpghninCmqnBjW7U0QIGHKpxmX1oQ
+        IX+v3feY2Jsrw2k1pPUQ8qcJpbavKZx+JrUcYgSbt9+dUjh5fH5Kb2pjyeIrLwqmdbnGsIMZZRVOFEzD
+        WM31dAPkyuPSw6P+z6FN5cCfcPBBOFOEM0U4U4SzFPEDI3CKHFolyO0AAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -162,6 +162,30 @@
   <metadata name="type.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="bunifuThinButton25.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAAAjCAYAAAADp43CAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFbSURBVGhD7dkhS0NRGMZxP5HNZDPZloZlySKCYRYtNoNB
+        YXNhQVxYmEEWBgZBsYiCWC6mjYUt3aBDFFkYGl55zrn34FDwXJ76/ODA2Jb+nN3B+y6YUBSQpIAkBSQp
+        IEkBSb8CXvbvrdo7stWTLVs8XNPJDnpsdg/sPLnKSnkh4Mds6r6wc3FsN8NHS99fsk8E0ONulNj+9alV
+        OnuhTwiIeLh98r+ndGjl9q7Nvj59QFxLlJV4rYee1W/PfEDcPlxPiTd6Ta3U2vYBlxvr7hkoxeDPxQXE
+        CylOAUkKSFJAkgKSFJCkgCQFJCkgSQFJCkhSQFIIuFSruNmWFBMCYsKKIaHEm0zfbKW54QNiMIgBocTD
+        9B7rDxcQP18MB7UHifOzlwsIg+exexPjfQ1X/4ZwWLhhH5JP8ENAQDjsRjChxgNSZ/7gzxYrX4zzc3MB
+        pTgFJCkgSQFJCkgx+wbVBCiCNcULJwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="bunifuThinButton24.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAAAjCAYAAAADp43CAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFbSURBVGhD7dkhS0NRGMZxP5HNZDPZloZlySKCYRYtNoNB
+        YXNhQVxYmEEWBgZBsYiCWC6mjYUt3aBDFFkYGl55zrn34FDwXJ76/ODA2Jb+nN3B+y6YUBSQpIAkBSQp
+        IEkBSb8CXvbvrdo7stWTLVs8XNPJDnpsdg/sPLnKSnkh4Mds6r6wc3FsN8NHS99fsk8E0ONulNj+9alV
+        OnuhTwiIeLh98r+ndGjl9q7Nvj59QFxLlJV4rYee1W/PfEDcPlxPiTd6Ta3U2vYBlxvr7hkoxeDPxQXE
+        CylOAUkKSFJAkgKSFJCkgCQFJCkgSQFJCkhSQFIIuFSruNmWFBMCYsKKIaHEm0zfbKW54QNiMIgBocTD
+        9B7rDxcQP18MB7UHifOzlwsIg+exexPjfQ1X/4ZwWLhhH5JP8ENAQDjsRjChxgNSZ/7gzxYrX4zzc3MB
+        pTgFJCkgSQFJCkgx+wbVBCiCNcULJwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="bunifuThinButton21.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAF8AAAAjCAYAAADyrNZPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -5508,30 +5532,6 @@
         3WyBggQIDhhM4MACBggQQAD6mREEADs=
 </value>
   </data>
-  <data name="bunifuThinButton25.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEsAAAAjCAYAAADc6ffdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFbSURBVGhD7dm/SwJxHMbx/qK2prYmtyZpcWoJoSGXWtoa
-        HAr6MTSEDg46hIPQEBQtURAt0lQ42HSDiSjiIDZ84vl+9UvinfjM97zgQNTl3pwnPLdmsjLFIigWQbEI
-        ikVQLMJCrPvPVztonFnmZt/WT3dSeeDc8/Wi3TYfplW8EGs4HrkvHN5d2lPr3aLBz/ST9MG5v7SbdvJY
-        slz1OLQIsRAKV5XM+4halq0c2fh34mPhckNFiVd+a9jFc83HwlWFy07itXuRbZcLPtbm1a67Z0ky3Phd
-        LLyQ5RSLoFgExSIoFkGxCIpFUCyCYhEUi6BYBMUihFgb5zm310iyEAtrIEYuidcd9W3res/HwrCFgUvi
-        YUHG3O5i4SeIcSvNu3uS/21cLPjqfLs3MTFrCPSR8OAG+/tsRQ6xAJGwxWM5xQ0tzQf+9PBIEJPyzFws
-        WU6xCIpFUCyCYq3M7A+S44JTxAFPlwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="bunifuThinButton24.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEsAAAAjCAYAAADc6ffdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFbSURBVGhD7dm/SwJxHMbx/qK2prYmtyZpcWoJoSGXWtoa
-        HAr6MTSEDg46hIPQEBQtURAt0lQ42HSDiSjiIDZ84vl+9UvinfjM97zgQNTl3pwnPLdmsjLFIigWQbEI
-        ikVQLMJCrPvPVztonFnmZt/WT3dSeeDc8/Wi3TYfplW8EGs4HrkvHN5d2lPr3aLBz/ST9MG5v7SbdvJY
-        slz1OLQIsRAKV5XM+4halq0c2fh34mPhckNFiVd+a9jFc83HwlWFy07itXuRbZcLPtbm1a67Z0ky3Phd
-        LLyQ5RSLoFgExSIoFkGxCIpFUCyCYhEUi6BYBMUihFgb5zm310iyEAtrIEYuidcd9W3res/HwrCFgUvi
-        YUHG3O5i4SeIcSvNu3uS/21cLPjqfLs3MTFrCPSR8OAG+/tsRQ6xAJGwxWM5xQ0tzQf+9PBIEJPyzFws
-        WU6xCIpFUCyCYq3M7A+S44JTxAFPlwAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="openImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -5540,6 +5540,9 @@
   </metadata>
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>239, 17</value>
+  </metadata>
+  <metadata name="saveQuadtree.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>360, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

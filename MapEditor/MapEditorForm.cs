@@ -14,31 +14,38 @@ using Bunifu.Framework.UI;
 
 namespace MapEditor
 {
+    enum Type{
+        All = -1,
+        Static = 0,
+        Dynamic = 1
+    }
+
+
 
     public partial class MapEditorForm : MetroFramework.Forms.MetroForm
     {
 
-        private int count = 0;
+        private int id = 0;
         private int width = 0;
         private int height = 0;
-        
-        //private int[ , ] tiles;
+
         private int rows;
         private int cols;
         private float zoom = 1.0f;
         private bool isDrawCells = true;
         private bool isLoadTile = false;
         private bool success = false;
+
         private StringBuilder matrixCells;
         private List<Bitmap> tilesImage;
         private Bitmap image;
         private Pen pen;
 
         private bool isDraw = false;
-        private Dictionary<int, ColorRegion> regions;
+        private Dictionary<int, CObject> objects;
         private Point start;
         private Point end;
-
+        private List<CObject> selectObjects;
         public int Round { get; private set; }
 
         public MapEditorForm()
@@ -53,7 +60,8 @@ namespace MapEditor
             label7.Text = "0";
             tilesImage = new List<Bitmap>();
             matrixCells = new StringBuilder();
-            regions = new Dictionary<int, ColorRegion>();
+            objects = new Dictionary<int, CObject>();
+            selectObjects = new List<CObject>();
             pen = new Pen(Color.SeaGreen);
             cbbType.SelectedIndex = 0;
             cbbName.SelectedIndex = 0;
@@ -64,7 +72,8 @@ namespace MapEditor
         {
             txb_Leave(txbHeight, null);
             txb_Leave(txbWidth, null);
-            regions.Clear();
+            objects.Clear();
+            txbObjects.Text = "0";
             if (openImage.ShowDialog() == DialogResult.OK)
             {
                 labelNameImage.Text = Path.GetFileName(openImage.FileName);
@@ -77,7 +86,7 @@ namespace MapEditor
                 GetCellSize();
 
                 pictureBoxMain.Image = new Bitmap(pictureBoxMain.Width, pictureBoxMain.Height);//layer draw cells
-                
+
                 DrawCells();
             };
         }
@@ -107,6 +116,7 @@ namespace MapEditor
 
             pictureBoxMain.Invalidate();//refesh
         }
+
         private void DrawCellsSub(int cols)
         {
             if (!isDrawCells || pictureBoxSub.Image is null) return;
@@ -117,6 +127,7 @@ namespace MapEditor
             }
             pictureBoxSub.Invalidate();
         }
+
         private void DrawCols(Graphics graphic, Pen pen, int cols)
         {
             for (int i = 0; i < cols; ++i)
@@ -124,6 +135,7 @@ namespace MapEditor
                 graphic.DrawLine(pen, new Point(i * width, 0), new Point(i * width, pictureBoxMain.Height));
             }
         }
+
         private void DrawRows(Graphics graphic, Pen pen, int rows)
         {
             for (int i = 0; i < rows; ++i)
@@ -149,13 +161,14 @@ namespace MapEditor
 
         private void MapEditorForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.P)
+            if (e.KeyCode == Keys.P)
             {
                 zoom += 0.1f;
                 pictureBoxMain.Width = (int)(zoom * pictureBoxMain.Width);
                 pictureBoxMain.Height = (int)(zoom * pictureBoxMain.Height);
             }
-            if(e.KeyCode == Keys.O){
+            if (e.KeyCode == Keys.O)
+            {
                 zoom -= 0.1f;
                 pictureBoxMain.Width = (int)(zoom * pictureBoxMain.Width);
                 pictureBoxMain.Height = (int)(zoom * pictureBoxMain.Height);
@@ -215,7 +228,7 @@ namespace MapEditor
 
         private void txb_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txb_Leave(sender, null);
                 GetCellSize();
@@ -241,7 +254,7 @@ namespace MapEditor
             matrixCells.Clear();
 
             GC.Collect();
-            
+
             isLoadTile = true;
             success = false;
             pictureBoxSub.BackgroundImage = null;
@@ -299,7 +312,7 @@ namespace MapEditor
                     }
                     matrixCells.AppendLine();
                 }
-                
+
                 if (pictureBoxSub.InvokeRequired)
                 {
                     pictureBoxSub.Invoke(new Action(() =>
@@ -319,13 +332,13 @@ namespace MapEditor
                     {
                         graphic.DrawImage(tilesImage[i], new Rectangle(i * width, 0, width, height), new Rectangle(0, 0, width, height), GraphicsUnit.Pixel);
                     }
-                    
+
                 }
-                if(isDrawCells)
+                if (isDrawCells)
                     using (Graphics graphic = Graphics.FromImage(pictureBoxSub.Image))
                         DrawCols(graphic, pen, tilesImage.Count);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -335,6 +348,7 @@ namespace MapEditor
                 isLoadTile = false;
             }
         }
+
         private void SetSizeSub(int width, int height)
         {
             if (tilesImage.Count == 0)
@@ -346,6 +360,7 @@ namespace MapEditor
             pictureBoxSub.BackgroundImage = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
             pictureBoxSub.Image = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
         }
+
         private void StopLoad()
         {
             if (pictureBox1.InvokeRequired)
@@ -356,14 +371,14 @@ namespace MapEditor
             else
                 pictureBox1.Hide();
         }
-      
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (isLoadTile) return;
 
             if (pictureBoxSub.BackgroundImage is null || !success)
             {
-                MessageBox.Show("Please, You must load tileset before you export its", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You must load tileset before you export its", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             saveImage.FileName = Path.GetFileName(openImage.FileName);
@@ -391,7 +406,7 @@ namespace MapEditor
                 string text = tilesImage.Count + " " + rows + " " + cols + Environment.NewLine + matrixCells.ToString();
                 SaveFileTXT(pathTxt, text);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -400,7 +415,7 @@ namespace MapEditor
                 isLoadTile = false;
                 StopLoad();
             }
-            
+
         }
 
         private void SaveFileTXT(string path, string content)
@@ -464,16 +479,21 @@ namespace MapEditor
             {
                 isDraw = false;
                 Rectangle rect = GetRectangle();
-                if (rect.Width > 0 && rect.Height > 0) regions.Add(count++, new ColorRegion( rect, pictureBox2.BackColor));
-                pictureBoxMain.Invalidate();
-                AddGridView(rect, cbbName.Text, cbbType.Text);
+                if (rect.Width > 0 && rect.Height > 0)
+                {
+                    objects.Add(id, new CObject(id++, rect, pictureBox2.BackColor, cbbName.SelectedIndex, cbbType.SelectedIndex));
+                    AddGridView(rect, cbbName.Text, cbbType.Text);
+                    
+                    pictureBoxMain.Invalidate();
+                    txbObjects.Text = objects.Count.ToString();
+                }
             }
         }
 
         private void AddGridView(Rectangle rect, string name, string type)
         {
             dataGridView.Rows.Add(name, type, rect.ToString());
-            dataGridView.Rows[dataGridView.RowCount - 1].Tag = count - 1;
+            dataGridView.Rows[dataGridView.RowCount - 1].Tag = id - 1;
         }
 
         private Rectangle GetRectangle()
@@ -487,19 +507,23 @@ namespace MapEditor
 
         private void pictureBoxMain_Paint(object sender, PaintEventArgs e)
         {
-            if (regions.Count > 0)
+            if (objects.Count > 0)
             {
                 if (checkColor.Checked)
-                    foreach (var item in regions)
+                    foreach (var item in objects)
                     {
                         e.Graphics.FillRectangle(new SolidBrush(item.Value.color), item.Value.region);
                     }
                 else
-                    foreach (var item in regions)
+                    foreach (var item in objects)
                     {
-                        e.Graphics.DrawRectangle(new Pen(item.Value.color), item.Value.region);
+                        e.Graphics.DrawRectangle(new Pen(item.Value.color) { Width = 3}, item.Value.region);
                     }
 
+                for (int i = 0; i < selectObjects.Count; ++i)
+                {
+                    e.Graphics.DrawRectangle(new Pen(selectObjects[i].color) { Width = 6 }, selectObjects[i].region);
+                }
             }
             if (isDraw) e.Graphics.DrawRectangle(new Pen(pictureBox2.BackColor), GetRectangle());
         }
@@ -521,7 +545,7 @@ namespace MapEditor
 
         private void bunifuThinButton23_Click_1(object sender, EventArgs e)
         {
-            if(colorDialog1.ShowDialog() == DialogResult.OK)
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox2.BackColor = colorDialog1.Color;
             }
@@ -530,15 +554,17 @@ namespace MapEditor
         private void dataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             //e.Row;
-            regions.Remove((int)e.Row.Tag);
+            objects.Remove((int)e.Row.Tag);
             pictureBoxMain.Invalidate();
+            txbObjects.Text = objects.Count.ToString();
         }
 
         private void bunifuThinButton25_Click(object sender, EventArgs e)
         {
             dataGridView.Rows.Clear();
-            regions.Clear();
+            objects.Clear();
             pictureBoxMain.Invalidate();
+            txbObjects.Text = "0";
         }
 
         private void bunifuThinButton24_Click(object sender, EventArgs e)
@@ -548,7 +574,8 @@ namespace MapEditor
                 foreach (DataGridViewRow row in dataGridView.SelectedRows)
                 {
                     dataGridView.Rows.Remove(row);
-                    regions.Remove((int)row.Tag);
+                    objects.Remove((int)row.Tag);
+                    txbObjects.Text = objects.Count.ToString();
                 }
                 pictureBoxMain.Invalidate();
             }
@@ -556,29 +583,117 @@ namespace MapEditor
 
         private void bunifuThinButton23_Click_2(object sender, EventArgs e)
         {
-            if(saveImage.ShowDialog() == DialogResult.OK)
+            if (image is null)
             {
-                GetImageSave(out string p1, out string p2, out ImageFormat p3);
-                QuadNode root = new QuadNode(0, 0, new Rectangle(0, 0, image.Width, image.Height));
-                StreamWriter writer = new StreamWriter(p2);
+                MessageBox.Show("You must load map before you export quadtree", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (saveQuadtree.ShowDialog() == DialogResult.OK)
+            {
+                string path = Path.GetDirectoryName(saveQuadtree.FileName);
+                string name = Path.GetFileName(saveQuadtree.FileName).Split('.')[0];
 
-                foreach (var item in regions)
+                switch (cbbExport.SelectedIndex)
                 {
-                    root.Build(item.Key, regions);
+                    case 0:
+                        SaveAll(path, name);
+                        break;
+                    case 1:
+                        SaveStatic(path, name, false);
+                        break;
+                    case 2:
+                        SaveDynamic(path, name, false);
+                        break;
+                    default:
+                        SaveAll(path, name);
+                        break;
                 }
-                root.Save(writer);
-                writer.Close();
             }
         }
-    }
-    public class ColorRegion
-    {
-        public Rectangle region;
-        public Color color;
-        public ColorRegion(Rectangle r, Color c)
+
+        private void SaveDynamic(string path, string name, bool twoFiles)
         {
-            region = r;
-            color = c;
+            QuadNode root = AutoBuild((int)Type.Dynamic);
+            string file;
+            if (twoFiles)
+                file = Path.Combine(path, name + "_dynamic.txt");
+            else file = Path.Combine(path, name + ".txt");
+
+            Save(root, file);
+        }
+
+        private void SaveStatic(string path, string name, bool twoFiles)
+        {
+            QuadNode root = AutoBuild((int)Type.Static);
+            string file;
+            if (twoFiles)
+                file = Path.Combine(path, name + "_static.txt");
+            else file = Path.Combine(path, name + ".txt");
+
+            Save(root, file);
+        }
+
+        private void SaveAll(string path, string name)
+        {
+            if(!checkBoxOnly.Checked)
+            {
+                SaveDynamic(path, name, true);
+                SaveStatic(path, name, true);
+                return;
+            }
+
+            QuadNode root = AutoBuild((int)Type.All);
+            string file = Path.Combine(path, name + ".txt");
+
+            Save(root, file);
+        }
+
+        private QuadNode AutoBuild(int type)
+        {
+            QuadNode root = new QuadNode(0, 0, new Rectangle(0, 0, image.Width, image.Height));
+            if (type != (int)Type.All)
+            {
+                foreach (var item in objects)
+                {
+                    if (item.Value.type == type)
+                        root.Build(item.Value);
+                }
+            }else
+                foreach (var item in objects)
+                {
+                    root.Build(item.Value);
+                }
+            return root;
+        }
+
+        private void Save(QuadNode root,string path)
+        {
+            StreamWriter stream = new StreamWriter(path);
+            root.Save(stream);
+            stream.Close();
+        }
+
+        private void cbbExport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbExport.SelectedIndex > 0)
+            {
+                checkBoxOnly.Enabled = false;
+            }
+            else checkBoxOnly.Enabled = true;
+        }
+
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dataGridView.SelectedRows.Count > 0)
+            {
+                selectObjects.Clear();
+                if (objects.Count <= 1) return;
+                //if (objects.Count == 1) selectObjects.Add(objects.ElementAt(0).Value);
+                foreach (DataGridViewRow item in dataGridView.SelectedRows){
+                    if(item.Tag != null) selectObjects.Add(objects[(int)item.Tag]);
+                }
+                pictureBoxMain.Invalidate();
+            }
         }
     }
 }
