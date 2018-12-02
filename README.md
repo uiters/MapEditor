@@ -4,7 +4,7 @@ MapEditor Cho Nhập Môn Phát Triển Game
 ![](MapEditor/Resources/Image/LoadTiles.JPG)
 ## 📑 Contents
 * [Features](#-features)
-* [Installation](#-installation)
+* [Installation](#-Installation)
 * [Documents](#-documents)
 * [Build with](#-build-with)
 * [Some Screens](#-some-screens)
@@ -19,8 +19,9 @@ MapEditor Cho Nhập Môn Phát Triển Game
 * [Export objects in map to file](#Object-to)
 * [Build quatree and export to file](#Quadtree)
 ## ⚙️ Installation
-* Add reference
+* Build with visual studio. You can add reference
 **Right click project** -> **Add** -> **Reference** -> **Choose Browse** -> **select all .dll in \MapEditor\Resources**
+* [File Install](https://github.com/tvc12/MapEditor/releases/download/v1.0.0/Map.Editor.zip)
 ## 📖 Documents
 
 ## 🔧 Build with
