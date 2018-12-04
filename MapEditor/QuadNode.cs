@@ -35,7 +35,7 @@ namespace MapEditor
         }
         private Size GetCenter(Rectangle rect)
         {
-            return new Size((rect.Width + rect.Left) / 2, (rect.Top + rect.Height) / 2);
+            return new Size(rect.Left + rect.Width  / 2, rect.Top + rect.Height / 2);
         }
 
         private bool CreateQuadNodeSub()
@@ -45,17 +45,13 @@ namespace MapEditor
             else
             {
                 this.leftTop = new QuadNode(id * 10 + 1, level + 1, new Rectangle(region.Location, center));
-                this.rightTop = new QuadNode(id * 10 + 2, level + 1, new Rectangle(new Point(center.Width + region.X), center));
+                this.rightTop = new QuadNode(id * 10 + 2, level + 1, new Rectangle(new Point(center.Width + region.X, region.Y), center));
                 this.leftBottom = new QuadNode(id * 10 + 3, level + 1, new Rectangle(new Point(region.X, region.Y + center.Height), center));
                 this.rightBottom = new QuadNode(id * 10 + 4, level + 1, new Rectangle(new Point(region.X + center.Width, region.Y + center.Height), center));
                 return true;
             }
         }
-        private int count()
-        {
-            if (leftTop == null) return objects.Count;
-            else return leftTop.count() + rightTop.count() + leftBottom.count() + rightBottom.count();
-        }
+
         public void Build(CObject obj)
         {
             objects.Add(obj);

@@ -48,10 +48,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.bunifuThinButton26 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBoxInclude = new MetroFramework.Controls.MetroCheckBox();
             this.checkBoxOnly = new MetroFramework.Controls.MetroCheckBox();
@@ -96,8 +96,8 @@
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel5.SuspendLayout();
@@ -134,7 +134,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(219, 169);
+            this.groupBox1.Size = new System.Drawing.Size(225, 169);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Image Setting";
@@ -216,7 +216,7 @@
             this.txbTile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbTile.Enabled = false;
             this.txbTile.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbTile.Location = new System.Drawing.Point(96, 107);
+            this.txbTile.Location = new System.Drawing.Point(-1022, 107);
             this.txbTile.Name = "txbTile";
             this.txbTile.ReadOnly = true;
             this.txbTile.Size = new System.Drawing.Size(108, 25);
@@ -246,7 +246,7 @@
             this.txbHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbHeight.BackColor = System.Drawing.Color.White;
             this.txbHeight.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbHeight.Location = new System.Drawing.Point(159, 75);
+            this.txbHeight.Location = new System.Drawing.Point(-959, 75);
             this.txbHeight.Name = "txbHeight";
             this.txbHeight.Size = new System.Drawing.Size(45, 25);
             this.txbHeight.TabIndex = 1;
@@ -269,7 +269,7 @@
             this.txbWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbWidth.BackColor = System.Drawing.Color.White;
             this.txbWidth.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbWidth.Location = new System.Drawing.Point(96, 75);
+            this.txbWidth.Location = new System.Drawing.Point(-1022, 75);
             this.txbWidth.Name = "txbWidth";
             this.txbWidth.Size = new System.Drawing.Size(45, 25);
             this.txbWidth.TabIndex = 0;
@@ -328,7 +328,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1038, 676);
+            this.groupBox2.Size = new System.Drawing.Size(1032, 676);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Map";
@@ -343,7 +343,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 581);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0);
-            this.panel2.Size = new System.Drawing.Size(1032, 92);
+            this.panel2.Size = new System.Drawing.Size(1026, 92);
             this.panel2.TabIndex = 0;
             this.panel2.TabStop = false;
             this.panel2.Text = "Tileset";
@@ -352,39 +352,18 @@
             // 
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.Maroon;
-            this.panel4.Controls.Add(this.groupBox7);
             this.panel4.Controls.Add(this.groupBox5);
+            this.panel4.Controls.Add(this.groupBox7);
             this.panel4.Controls.Add(this.groupBox6);
             this.panel4.Controls.Add(this.groupBox4);
             this.panel4.Controls.Add(this.groupBox3);
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1038, 0);
+            this.panel4.Location = new System.Drawing.Point(1032, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(236, 676);
+            this.panel4.Size = new System.Drawing.Size(242, 676);
             this.panel4.TabIndex = 2;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.Color.White;
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.checkBoxInclude);
-            this.groupBox5.Controls.Add(this.checkBoxOnly);
-            this.groupBox5.Controls.Add(this.cbbExport);
-            this.groupBox5.Controls.Add(this.bunifuThinButton23);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox5.Location = new System.Drawing.Point(0, 809);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox5.Size = new System.Drawing.Size(219, 161);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Export Objects ";
             // 
             // groupBox7
             // 
@@ -395,12 +374,12 @@
             this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox7.Location = new System.Drawing.Point(0, 970);
+            this.groupBox7.Location = new System.Drawing.Point(0, 784);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox7.Size = new System.Drawing.Size(219, 102);
-            this.groupBox7.TabIndex = 28;
+            this.groupBox7.Size = new System.Drawing.Size(225, 102);
+            this.groupBox7.TabIndex = 20;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Import Objects ";
             // 
@@ -445,6 +424,27 @@
             this.bunifuThinButton26.TabIndex = 21;
             this.bunifuThinButton26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuThinButton26.Click += new System.EventHandler(this.bunifuThinButton26_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.White;
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.checkBoxInclude);
+            this.groupBox5.Controls.Add(this.checkBoxOnly);
+            this.groupBox5.Controls.Add(this.cbbExport);
+            this.groupBox5.Controls.Add(this.bunifuThinButton23);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox5.Location = new System.Drawing.Point(0, 886);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox5.Size = new System.Drawing.Size(225, 161);
+            this.groupBox5.TabIndex = 28;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Export Objects ";
             // 
             // label10
             // 
@@ -497,7 +497,7 @@
             "All",
             "Static",
             "Dynamic"});
-            this.cbbExport.Location = new System.Drawing.Point(102, 25);
+            this.cbbExport.Location = new System.Drawing.Point(108, 25);
             this.cbbExport.Name = "cbbExport";
             this.cbbExport.Size = new System.Drawing.Size(111, 25);
             this.cbbExport.TabIndex = 24;
@@ -542,7 +542,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox6.Size = new System.Drawing.Size(219, 385);
+            this.groupBox6.Size = new System.Drawing.Size(225, 360);
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Setting Object";
@@ -576,7 +576,7 @@
             this.dataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SeaGreen;
             this.dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(219, 267);
+            this.dataGridView.Size = new System.Drawing.Size(225, 265);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             this.dataGridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
@@ -614,15 +614,15 @@
             this.panel5.Controls.Add(this.txbObjects);
             this.panel5.Controls.Add(this.bunifuThinButton24);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 285);
+            this.panel5.Location = new System.Drawing.Point(0, 283);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(219, 100);
+            this.panel5.Size = new System.Drawing.Size(225, 77);
             this.panel5.TabIndex = 2;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 18);
+            this.label14.Location = new System.Drawing.Point(13, 13);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(52, 17);
             this.label14.TabIndex = 14;
@@ -646,7 +646,7 @@
             this.bunifuThinButton25.IdleFillColor = System.Drawing.Color.White;
             this.bunifuThinButton25.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton25.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton25.Location = new System.Drawing.Point(10, 46);
+            this.bunifuThinButton25.Location = new System.Drawing.Point(10, 35);
             this.bunifuThinButton25.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuThinButton25.Name = "bunifuThinButton25";
             this.bunifuThinButton25.Size = new System.Drawing.Size(80, 35);
@@ -661,7 +661,7 @@
             this.txbObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbObjects.Enabled = false;
             this.txbObjects.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbObjects.Location = new System.Drawing.Point(92, 14);
+            this.txbObjects.Location = new System.Drawing.Point(-1026, 14);
             this.txbObjects.Name = "txbObjects";
             this.txbObjects.ReadOnly = true;
             this.txbObjects.Size = new System.Drawing.Size(112, 25);
@@ -686,7 +686,7 @@
             this.bunifuThinButton24.IdleFillColor = System.Drawing.Color.White;
             this.bunifuThinButton24.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton24.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton24.Location = new System.Drawing.Point(124, 46);
+            this.bunifuThinButton24.Location = new System.Drawing.Point(124, 35);
             this.bunifuThinButton24.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuThinButton24.Name = "bunifuThinButton24";
             this.bunifuThinButton24.Size = new System.Drawing.Size(80, 35);
@@ -713,7 +713,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Size = new System.Drawing.Size(219, 163);
+            this.groupBox4.Size = new System.Drawing.Size(225, 163);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Setting Object";
@@ -789,7 +789,7 @@
             this.cbbType.Items.AddRange(new object[] {
             "Static",
             "Dynamic"});
-            this.cbbType.Location = new System.Drawing.Point(93, 54);
+            this.cbbType.Location = new System.Drawing.Point(-1025, 54);
             this.cbbType.Name = "cbbType";
             this.cbbType.Size = new System.Drawing.Size(111, 25);
             this.cbbType.TabIndex = 18;
@@ -812,7 +812,7 @@
             this.cbbName.Items.AddRange(new object[] {
             "Brick",
             "Wall"});
-            this.cbbName.Location = new System.Drawing.Point(93, 22);
+            this.cbbName.Location = new System.Drawing.Point(-1025, 22);
             this.cbbName.Name = "cbbName";
             this.cbbName.Size = new System.Drawing.Size(111, 25);
             this.cbbName.TabIndex = 17;
@@ -842,7 +842,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(219, 92);
+            this.groupBox3.Size = new System.Drawing.Size(225, 92);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TileSet Setting";
@@ -955,7 +955,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 21);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1032, 560);
+            this.panel1.Size = new System.Drawing.Size(1026, 560);
             this.panel1.TabIndex = 0;
             // 
             // pictureBoxMain
@@ -980,7 +980,7 @@
             this.cPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cPanel1.Location = new System.Drawing.Point(0, 18);
             this.cPanel1.Name = "cPanel1";
-            this.cPanel1.Size = new System.Drawing.Size(1032, 74);
+            this.cPanel1.Size = new System.Drawing.Size(1026, 74);
             this.cPanel1.TabIndex = 0;
             // 
             // pictureBoxSub
@@ -1014,9 +1014,9 @@
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel5.ResumeLayout(false);
