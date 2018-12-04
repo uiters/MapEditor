@@ -49,6 +49,9 @@
             this.panel2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.bunifuThinButton26 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBoxInclude = new MetroFramework.Controls.MetroCheckBox();
             this.checkBoxOnly = new MetroFramework.Controls.MetroCheckBox();
@@ -83,6 +86,7 @@
             this.saveImage = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.saveQuadtree = new System.Windows.Forms.SaveFileDialog();
+            this.openFileTxt = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new MapEditor.CPanel();
             this.pictureBoxMain = new System.Windows.Forms.PictureBox();
             this.cPanel1 = new MapEditor.CPanel();
@@ -93,6 +97,7 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel5.SuspendLayout();
@@ -347,6 +352,7 @@
             // 
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.Maroon;
+            this.panel4.Controls.Add(this.groupBox7);
             this.panel4.Controls.Add(this.groupBox5);
             this.panel4.Controls.Add(this.groupBox6);
             this.panel4.Controls.Add(this.groupBox4);
@@ -371,14 +377,74 @@
             this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox5.Location = new System.Drawing.Point(0, 925);
+            this.groupBox5.Location = new System.Drawing.Point(0, 809);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox5.Size = new System.Drawing.Size(219, 171);
+            this.groupBox5.Size = new System.Drawing.Size(219, 161);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Export Objects ";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.Color.White;
+            this.groupBox7.Controls.Add(this.metroCheckBox1);
+            this.groupBox7.Controls.Add(this.bunifuThinButton26);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox7.Location = new System.Drawing.Point(0, 970);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox7.Size = new System.Drawing.Size(219, 102);
+            this.groupBox7.TabIndex = 28;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Import Objects ";
+            // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.metroCheckBox1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.metroCheckBox1.Location = new System.Drawing.Point(16, 21);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(159, 24);
+            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroCheckBox1.TabIndex = 26;
+            this.metroCheckBox1.Text = "Add Name Objects";
+            this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroCheckBox1.UseCustomBackColor = true;
+            this.metroCheckBox1.UseCustomForeColor = true;
+            this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.UseStyleColors = true;
+            // 
+            // bunifuThinButton26
+            // 
+            this.bunifuThinButton26.ActiveBorderThickness = 1;
+            this.bunifuThinButton26.ActiveCornerRadius = 10;
+            this.bunifuThinButton26.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton26.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton26.BackgroundImage")));
+            this.bunifuThinButton26.ButtonText = "Import Objects";
+            this.bunifuThinButton26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton26.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.IdleBorderThickness = 1;
+            this.bunifuThinButton26.IdleCornerRadius = 10;
+            this.bunifuThinButton26.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton26.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.Location = new System.Drawing.Point(13, 52);
+            this.bunifuThinButton26.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuThinButton26.Name = "bunifuThinButton26";
+            this.bunifuThinButton26.Size = new System.Drawing.Size(110, 40);
+            this.bunifuThinButton26.TabIndex = 21;
+            this.bunifuThinButton26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton26.Click += new System.EventHandler(this.bunifuThinButton26_Click);
             // 
             // label10
             // 
@@ -476,7 +542,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox6.Size = new System.Drawing.Size(219, 501);
+            this.groupBox6.Size = new System.Drawing.Size(219, 385);
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Setting Object";
@@ -510,7 +576,7 @@
             this.dataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SeaGreen;
             this.dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(219, 383);
+            this.dataGridView.Size = new System.Drawing.Size(219, 267);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             this.dataGridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
@@ -548,7 +614,7 @@
             this.panel5.Controls.Add(this.txbObjects);
             this.panel5.Controls.Add(this.bunifuThinButton24);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 401);
+            this.panel5.Location = new System.Drawing.Point(0, 285);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(219, 100);
             this.panel5.TabIndex = 2;
@@ -878,6 +944,10 @@
             // 
             this.saveQuadtree.Filter = "TXT FIle(*.txt) | *.txt";
             // 
+            // openFileTxt
+            // 
+            this.openFileTxt.Filter = "TXT FIle(*.txt) | *.txt";
+            // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
@@ -946,6 +1016,7 @@
             this.panel4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -1025,6 +1096,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.DataGridViewTextBoxColumn location;
         private System.Windows.Forms.DataGridViewTextBoxColumn l;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton26;
+        private System.Windows.Forms.OpenFileDialog openFileTxt;
     }
 }
 

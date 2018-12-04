@@ -25,9 +25,13 @@ namespace MapEditor
     public partial class MapEditorForm : MetroFramework.Forms.MetroForm
     {
 
-        private int id = 0;
+        private int id = 0;//id Objects
+        private int idName = 0;
         private int width = 0;
         private int height = 0;
+
+        private int widthMap = 0;
+        private int heightMap = 0;
 
         private int rows;
         private int cols;
@@ -42,10 +46,15 @@ namespace MapEditor
         private Pen pen;
 
         private bool isDraw = false;
+
         private Dictionary<int, CObject> objects;
+        private Dictionary<int, Color> colors;
+        private Dictionary<int, string> names;
+
         private Point start;
         private Point end;
         private List<CObject> selectObjects;
+        private readonly Random random = new Random();
         public int Round { get; private set; }
 
         public MapEditorForm()
@@ -61,7 +70,11 @@ namespace MapEditor
             tilesImage = new List<Bitmap>();
             matrixCells = new StringBuilder();
             objects = new Dictionary<int, CObject>();
+
             selectObjects = new List<CObject>();
+            colors = new Dictionary<int, Color>();
+            names = new Dictionary<int, string>();
+
             pen = new Pen(Color.SeaGreen);
             cbbType.SelectedIndex = 0;
             cbbName.SelectedIndex = 0;
@@ -83,6 +96,9 @@ namespace MapEditor
                 pictureBoxMain.Height = pictureBoxMain.BackgroundImage.Height;
                 labelSize.Text = pictureBoxMain.Width + " X " + pictureBoxMain.Height;
 
+                widthMap = pictureBoxMain.Width;
+                heightMap = pictureBoxMain.Height;
+
                 GetCellSize();
 
                 pictureBoxMain.Image = new Bitmap(pictureBoxMain.Width, pictureBoxMain.Height);//layer draw cells
@@ -101,6 +117,7 @@ namespace MapEditor
 
             txbTile.Text = (rows * cols).ToString();
         }
+
 
         private void DrawCells()
         {
@@ -144,6 +161,7 @@ namespace MapEditor
             }
         }
 
+
         private void txb_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -164,14 +182,16 @@ namespace MapEditor
             if (e.KeyCode == Keys.P)
             {
                 zoom += 0.1f;
-                pictureBoxMain.Width = (int)(zoom * pictureBoxMain.Width);
-                pictureBoxMain.Height = (int)(zoom * pictureBoxMain.Height);
+                pictureBoxMain.Width = (int)(zoom * widthMap);
+                pictureBoxMain.Height = (int)(zoom * heightMap);
+
             }
             if (e.KeyCode == Keys.O)
             {
                 zoom -= 0.1f;
-                pictureBoxMain.Width = (int)(zoom * pictureBoxMain.Width);
-                pictureBoxMain.Height = (int)(zoom * pictureBoxMain.Height);
+                pictureBoxMain.Width = (int)(zoom * widthMap);
+                pictureBoxMain.Height = (int)(zoom * heightMap);
+
             }
         }
 
@@ -683,12 +703,13 @@ namespace MapEditor
             StreamWriter stream = new StreamWriter(path);
             foreach (var item in objs)
             {
-                stream.Write(item.ID + " " + item.idName + " " + item.type + " " + item.region.X + " " + item.region.Y + " " + item.region.Right + " " + item.region.Bottom);
+                stream.Write(item.ID + " " + item.idName + " " + item.type + " " + item.region.X + " " + item.region.Y + " " + item.region.Width + " " + item.region.Height);
                 stream.WriteLine();
                 stream.Flush();
             }
             stream.Close();
         }
+
 
         private void cbbExport_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -711,6 +732,74 @@ namespace MapEditor
                 }
                 pictureBoxMain.Invalidate();
             }
+        }
+
+        private void bunifuThinButton26_Click(object sender, EventArgs e)
+        {
+            if(image is null)
+            {
+                MessageBox.Show("You must load map before you import objects", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                if(openFileTxt.ShowDialog() == DialogResult.OK)
+                {
+                    ReadObjects(openFileTxt.FileName);
+                }
+            }
+        }
+        void ReadObjects(string path)
+        {
+            try
+            {
+                cbbName.Items.Clear();
+                string[] lines = File.ReadAllLines(path);
+                for(int i = 0; i<lines.Length; ++i)
+                {
+                    string line = lines[i];
+                    string[] obj = line.Split(' ');
+                    CObject cObject = CreateObjects(obj);
+                    objects[cObject.ID] = cObject;
+                }
+               if(cbbName.Items.Count > 0)
+                {
+                    cbbName.SelectedIndex = 0;
+                    txbObjects.Text = objects.Count.ToString();
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                pictureBoxMain.Invalidate();
+            }
+        }
+        CObject CreateObjects(string[] obj)
+        {
+            int id, idName, idType, x, y, width, height;
+            id = int.Parse(obj[0]);
+            idName = int.Parse(obj[1]);
+            idType = int.Parse(obj[2]);
+            x = int.Parse(obj[3]);
+            y = int.Parse(obj[4]);
+            width = int.Parse(obj[5]);
+            height = int.Parse(obj[6]);
+            if(!names.ContainsKey(idName))
+            {
+                
+                names[idName] = "Name " + idName;
+                cbbName.Items.Add(names[idName]);
+                colors[idName] = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255));
+                
+            }
+            string type = idType == 0 ? "Static" : "Dynamic";
+            Rectangle rect = new Rectangle(x, y, width, height);
+            this.id = id + 1;
+            AddGridView(rect, names[idName], type);
+            return new CObject(id, rect, colors[idName], idName, idType);
         }
     }
 }
