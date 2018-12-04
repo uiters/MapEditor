@@ -423,7 +423,7 @@ namespace MapEditor
                 string pathTxt = (string)info[1];
                 ImageFormat format = (ImageFormat)info[2];
                 pictureBoxSub.BackgroundImage.Save(pathImage, format);
-                string text = tilesImage.Count + " " + rows + " " + cols + Environment.NewLine + matrixCells.ToString();
+                string text = tilesImage.Count + " " + rows + " " + cols + " " + width + " " + height + Environment.NewLine + matrixCells.ToString();
                 SaveFileTXT(pathTxt, text);
             }
             catch (Exception ex)
