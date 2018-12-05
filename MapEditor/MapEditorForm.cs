@@ -36,6 +36,9 @@ namespace MapEditor
         private int rows;
         private int cols;
         private float zoom = 1.0f;
+        private int depth = 10;
+        private int minWidth = 128;
+        private int minHeight = 128;
         private bool isDrawCells = true;
         private bool isLoadTile = false;
         private bool success = false;
@@ -614,6 +617,10 @@ namespace MapEditor
                 string path = Path.GetDirectoryName(saveQuadtree.FileName);
                 string name = Path.GetFileName(saveQuadtree.FileName).Split('.')[0];
 
+                CheckValueTrue(txbDepth, 10,out depth);
+                CheckValueTrue(txbMinHeight, 128,out minHeight);
+                CheckValueTrue(txbMinWidth, 128, out minWidth);
+
                 switch (cbbExport.SelectedIndex)
                 {
                     case 0:
@@ -633,6 +640,18 @@ namespace MapEditor
             }
         }
 
+        private void CheckValueTrue(TextBox textBox,int defaultValue, out int value)
+        {
+            if (int.TryParse(textBox.Text,out value))
+            {
+                if(value > 0)
+                    return;
+            }
+
+            textBox.Text = defaultValue.ToString();
+            value = defaultValue;
+        }
+
         private void SaveDynamic(string path, string name, bool saveObject)
         {
          
@@ -641,7 +660,8 @@ namespace MapEditor
             string fileObject = Path.Combine(path, name + ".txt");
             if (saveObject) SaveObject(objs, fileObject);
 
-            SaveQuadTree(root, file);
+            if(checkBoxInclude.Checked)
+                SaveQuadTree(root, file);
         }
 
         private void SaveStatic(string path, string name, bool saveObject)
@@ -650,7 +670,8 @@ namespace MapEditor
             string file = Path.Combine(path, name + "_static.txt");
             string fileObject = Path.Combine(path, name + ".txt");
             if(saveObject) SaveObject(objs, fileObject);
-            SaveQuadTree(root, file);
+            if(checkBoxInclude.Checked)
+                SaveQuadTree(root, file);
         }
 
         private void SaveAll(string path, string name)
@@ -668,12 +689,17 @@ namespace MapEditor
             QuadNode root = AutoBuild((int)Type.All, out List<CObject> objs);
             string file = Path.Combine(path, name + "_all.txt");
             SaveObject(objs, fileObject);
-            SaveQuadTree(root, file);
+            if(checkBoxInclude.Checked)
+                SaveQuadTree(root, file);
         }
 
         private QuadNode AutoBuild(int type, out List<CObject> objs)
         {
+            QuadNode.depth = depth;
+            QuadNode.minSize.Width = minWidth;
+            QuadNode.minSize.Height = minHeight;
             QuadNode root = new QuadNode(0, 0, new Rectangle(0, 0, image.Width, image.Height));
+            
             objs = new List<CObject>();
             if (type != (int)Type.All)
             {
@@ -745,6 +771,12 @@ namespace MapEditor
             {
                 if(openFileTxt.ShowDialog() == DialogResult.OK)
                 {
+                    if (MessageBox.Show("All Objects will be cleaned. Are you sure?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+                        return;
+                    colors.Clear();
+                    objects.Clear();
+                    names.Clear();
+                    id = 0;
                     ReadObjects(openFileTxt.FileName);
                 }
             }

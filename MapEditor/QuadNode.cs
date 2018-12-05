@@ -9,18 +9,19 @@ namespace MapEditor
 {
     class QuadNode
     {
-        private readonly int CLevel = 6;
 
-        private readonly int id;
+        private readonly ulong id;
         private QuadNode leftTop;
         private QuadNode rightTop;
         private QuadNode leftBottom;
         private QuadNode rightBottom;
         private Rectangle region;
         private int level;
+        public static int depth;
+        public static Size minSize;
 
         public List<CObject> objects;
-        public QuadNode(int id, int level, Rectangle rect)
+        public QuadNode(ulong id, int level, Rectangle rect)
         {
             this.id = id;
             this.level = level;
@@ -38,17 +39,16 @@ namespace MapEditor
             return new Size(rect.Left + rect.Width  / 2, rect.Top + rect.Height / 2);
         }
 
-        private bool CreateQuadNodeSub()
+        private void CreateQuadNodeSub()
         {
             Size center = GetCenter(region);
-            if (center.Width < 200 || objects.Count < 2 || level >= CLevel) return false;
+            if (center.Width < minSize.Width || center.Height < minSize.Height || objects.Count < 2 || level >= depth) return;
             else
             {
                 this.leftTop = new QuadNode(id * 10 + 1, level + 1, new Rectangle(region.Location, center));
                 this.rightTop = new QuadNode(id * 10 + 2, level + 1, new Rectangle(new Point(center.Width + region.X, region.Y), center));
                 this.leftBottom = new QuadNode(id * 10 + 3, level + 1, new Rectangle(new Point(region.X, region.Y + center.Height), center));
                 this.rightBottom = new QuadNode(id * 10 + 4, level + 1, new Rectangle(new Point(region.X + center.Width, region.Y + center.Height), center));
-                return true;
             }
         }
 
@@ -57,7 +57,7 @@ namespace MapEditor
             objects.Add(obj);
             if (leftBottom is null)
             {
-                if (CreateQuadNodeSub() == false) return;
+                CreateQuadNodeSub();
             }
             else
             {
