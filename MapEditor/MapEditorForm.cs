@@ -112,8 +112,8 @@ namespace MapEditor
 
         private void GetCellSize()
         {
-            width = int.Parse(txbWidth.Text);
-            height = int.Parse(txbHeight.Text);
+            CheckValueTrue(txbWidth, 10, out width);
+            CheckValueTrue(txbHeight, 10, out height);
 
             cols = (int)Math.Round(pictureBoxMain.BackgroundImage.Width / (float)width + 0.99f, 1, MidpointRounding.ToEven);
             rows = (int)Math.Round(pictureBoxMain.BackgroundImage.Height / (float)height + 0.99f, 1, MidpointRounding.ToEven);
@@ -301,14 +301,14 @@ namespace MapEditor
                 bool isExists = false;
                 int id = 0;
 
-                for (int i = 0; i < rows; ++i)
+                for (int row = 0; row < rows; ++row)
                 {
-                    for (int j = 0; j < cols; ++j)
+                    for (int col = 0; col < cols; ++col)
                     {
                         Bitmap b = new Bitmap(width, height);
                         using (Graphics graphic = Graphics.FromImage(b))
                         {
-                            graphic.DrawImage(image, new Rectangle(0, 0, width, height), new Rectangle(j * width, i * height, width, height), GraphicsUnit.Pixel);
+                            graphic.DrawImage(image, new Rectangle(0, 0, width, height), new Rectangle(col * width, row * height, width, height), GraphicsUnit.Pixel);
                         }
                         isExists = false;
                         for (int index = 0; index < tilesImage.Count; ++index)
@@ -813,6 +813,8 @@ namespace MapEditor
         {
             int id, idName, idType, x, y, width, height;
             id = int.Parse(obj[0]);
+            if (id >= this.id)
+                this.id = id + 1;
             idName = int.Parse(obj[1]);
             idType = int.Parse(obj[2]);
             x = int.Parse(obj[3]);
@@ -829,7 +831,6 @@ namespace MapEditor
             }
             string type = idType == 0 ? "Static" : "Dynamic";
             Rectangle rect = new Rectangle(x, y, width, height);
-            this.id = id + 1;
             AddGridView(rect, names[idName], type);
             return new CObject(id, rect, colors[idName], idName, idType);
         }
