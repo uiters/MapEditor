@@ -29,30 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapEditorForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelSize = new System.Windows.Forms.Label();
-            this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.txbTile = new System.Windows.Forms.TextBox();
-            this.labelNameImage = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txbHeight = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbWidth = new System.Windows.Forms.TextBox();
-            this.checkBox = new MetroFramework.Controls.MetroCheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.GroupBox();
+            this.openImage = new System.Windows.Forms.OpenFileDialog();
+            this.saveImage = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.saveQuadtree = new System.Windows.Forms.SaveFileDialog();
+            this.openFileTxt = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new MapEditor.CPanel();
             this.pictureBoxMain = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.GroupBox();
             this.cPanel1 = new MapEditor.CPanel();
             this.pictureBoxSub = new System.Windows.Forms.PictureBox();
             this.panel4 = new MapEditor.CPanel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txbMinHeight = new System.Windows.Forms.TextBox();
+            this.txbDepth = new System.Windows.Forms.TextBox();
+            this.txbMinWidth = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBoxInclude = new MetroFramework.Controls.MetroCheckBox();
             this.checkBoxOnly = new MetroFramework.Controls.MetroCheckBox();
@@ -63,15 +62,14 @@
             this.bunifuThinButton26 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.l = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.bunifuThinButton25 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txbObjects = new System.Windows.Forms.TextBox();
             this.bunifuThinButton24 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbbDirection = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.checkColor = new MetroFramework.Controls.MetroCheckBox();
@@ -86,28 +84,33 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.openImage = new System.Windows.Forms.OpenFileDialog();
-            this.saveImage = new System.Windows.Forms.SaveFileDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.saveQuadtree = new System.Windows.Forms.SaveFileDialog();
-            this.openFileTxt = new System.Windows.Forms.OpenFileDialog();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txbDepth = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txbMinHeight = new System.Windows.Forms.TextBox();
-            this.txbMinWidth = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelSize = new System.Windows.Forms.Label();
+            this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.txbTile = new System.Windows.Forms.TextBox();
+            this.labelNameImage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txbHeight = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txbWidth = new System.Windows.Forms.TextBox();
+            this.checkBox = new MetroFramework.Controls.MetroCheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.l = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
-            this.panel2.SuspendLayout();
             this.cPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSub)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -116,8 +119,779 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox8.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.groupBox2);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(5, 30);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1274, 676);
+            this.panel3.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.panel1);
+            this.groupBox2.Controls.Add(this.panel2);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1032, 676);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Map";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.cPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.panel2.Location = new System.Drawing.Point(3, 581);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0);
+            this.panel2.Size = new System.Drawing.Size(1026, 92);
+            this.panel2.TabIndex = 0;
+            this.panel2.TabStop = false;
+            this.panel2.Text = "Tileset";
+            // 
+            // openImage
+            // 
+            this.openImage.Filter = "Image File (*.bmp, *.png, *.jpg, *.jpeg) | *.bmp; *.png; *.jpg; *.jpeg";
+            this.openImage.Title = "Open Map";
+            // 
+            // saveImage
+            // 
+            this.saveImage.Filter = "PNG (*.png) | *.png; | BMP (*.bmp) | *.bmp; | JPEG (*.jpg, *.jpeg) | *.jpg; *.jpe" +
+    "g";
+            this.saveImage.Title = "Save TileSet";
+            // 
+            // saveQuadtree
+            // 
+            this.saveQuadtree.Filter = "TXT FIle(*.txt) | *.txt";
+            // 
+            // openFileTxt
+            // 
+            this.openFileTxt.Filter = "TXT FIle(*.txt) | *.txt";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pictureBoxMain);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 21);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1026, 560);
+            this.panel1.TabIndex = 0;
+            // 
+            // pictureBoxMain
+            // 
+            this.pictureBoxMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxMain.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBoxMain.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxMain.Name = "pictureBoxMain";
+            this.pictureBoxMain.Size = new System.Drawing.Size(355, 113);
+            this.pictureBoxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMain.TabIndex = 1;
+            this.pictureBoxMain.TabStop = false;
+            this.pictureBoxMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxMain_Paint);
+            this.pictureBoxMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMain_MouseDown);
+            this.pictureBoxMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseMove);
+            this.pictureBoxMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseUp);
+            // 
+            // cPanel1
+            // 
+            this.cPanel1.AutoScroll = true;
+            this.cPanel1.Controls.Add(this.pictureBoxSub);
+            this.cPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cPanel1.Location = new System.Drawing.Point(0, 18);
+            this.cPanel1.Name = "cPanel1";
+            this.cPanel1.Size = new System.Drawing.Size(1026, 74);
+            this.cPanel1.TabIndex = 0;
+            // 
+            // pictureBoxSub
+            // 
+            this.pictureBoxSub.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxSub.Name = "pictureBoxSub";
+            this.pictureBoxSub.Size = new System.Drawing.Size(230, 71);
+            this.pictureBoxSub.TabIndex = 1;
+            this.pictureBoxSub.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.BackColor = System.Drawing.Color.Maroon;
+            this.panel4.Controls.Add(this.groupBox5);
+            this.panel4.Controls.Add(this.groupBox7);
+            this.panel4.Controls.Add(this.groupBox6);
+            this.panel4.Controls.Add(this.groupBox4);
+            this.panel4.Controls.Add(this.groupBox3);
+            this.panel4.Controls.Add(this.groupBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(1032, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(242, 676);
+            this.panel4.TabIndex = 2;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.White;
+            this.groupBox5.Controls.Add(this.groupBox8);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.checkBoxInclude);
+            this.groupBox5.Controls.Add(this.checkBoxOnly);
+            this.groupBox5.Controls.Add(this.cbbExport);
+            this.groupBox5.Controls.Add(this.bunifuThinButton23);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox5.Location = new System.Drawing.Point(0, 926);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox5.Size = new System.Drawing.Size(225, 261);
+            this.groupBox5.TabIndex = 28;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Export Objects ";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.BackColor = System.Drawing.Color.White;
+            this.groupBox8.Controls.Add(this.label11);
+            this.groupBox8.Controls.Add(this.txbMinHeight);
+            this.groupBox8.Controls.Add(this.txbDepth);
+            this.groupBox8.Controls.Add(this.txbMinWidth);
+            this.groupBox8.Controls.Add(this.label12);
+            this.groupBox8.Controls.Add(this.label13);
+            this.groupBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox8.Location = new System.Drawing.Point(5, 55);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox8.Size = new System.Drawing.Size(225, 90);
+            this.groupBox8.TabIndex = 34;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "QuadTree";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 27);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 17);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Depth";
+            // 
+            // txbMinHeight
+            // 
+            this.txbMinHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbMinHeight.BackColor = System.Drawing.Color.White;
+            this.txbMinHeight.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txbMinHeight.Location = new System.Drawing.Point(170, 54);
+            this.txbMinHeight.Name = "txbMinHeight";
+            this.txbMinHeight.Size = new System.Drawing.Size(45, 25);
+            this.txbMinHeight.TabIndex = 32;
+            this.txbMinHeight.Text = "128";
+            // 
+            // txbDepth
+            // 
+            this.txbDepth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbDepth.BackColor = System.Drawing.Color.White;
+            this.txbDepth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbDepth.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txbDepth.Location = new System.Drawing.Point(103, 23);
+            this.txbDepth.Name = "txbDepth";
+            this.txbDepth.Size = new System.Drawing.Size(112, 25);
+            this.txbDepth.TabIndex = 29;
+            this.txbDepth.Text = "10";
+            // 
+            // txbMinWidth
+            // 
+            this.txbMinWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbMinWidth.BackColor = System.Drawing.Color.White;
+            this.txbMinWidth.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txbMinWidth.Location = new System.Drawing.Point(103, 54);
+            this.txbMinWidth.Name = "txbMinWidth";
+            this.txbMinWidth.Size = new System.Drawing.Size(45, 25);
+            this.txbMinWidth.TabIndex = 31;
+            this.txbMinWidth.Text = "128";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 17);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Min Size";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(152, 58);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(16, 17);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "X";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 17);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Export Type";
+            // 
+            // checkBoxInclude
+            // 
+            this.checkBoxInclude.Checked = true;
+            this.checkBoxInclude.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxInclude.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.checkBoxInclude.ForeColor = System.Drawing.Color.SeaGreen;
+            this.checkBoxInclude.Location = new System.Drawing.Point(10, 153);
+            this.checkBoxInclude.Name = "checkBoxInclude";
+            this.checkBoxInclude.Size = new System.Drawing.Size(159, 24);
+            this.checkBoxInclude.Style = MetroFramework.MetroColorStyle.Green;
+            this.checkBoxInclude.TabIndex = 26;
+            this.checkBoxInclude.Text = "Include QuadTree";
+            this.checkBoxInclude.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.checkBoxInclude.UseCustomBackColor = true;
+            this.checkBoxInclude.UseCustomForeColor = true;
+            this.checkBoxInclude.UseSelectable = true;
+            this.checkBoxInclude.UseStyleColors = true;
+            // 
+            // checkBoxOnly
+            // 
+            this.checkBoxOnly.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.checkBoxOnly.ForeColor = System.Drawing.Color.SeaGreen;
+            this.checkBoxOnly.Location = new System.Drawing.Point(10, 186);
+            this.checkBoxOnly.Name = "checkBoxOnly";
+            this.checkBoxOnly.Size = new System.Drawing.Size(139, 24);
+            this.checkBoxOnly.Style = MetroFramework.MetroColorStyle.Green;
+            this.checkBoxOnly.TabIndex = 25;
+            this.checkBoxOnly.Text = "One File Quadtree";
+            this.checkBoxOnly.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.checkBoxOnly.UseCustomBackColor = true;
+            this.checkBoxOnly.UseCustomForeColor = true;
+            this.checkBoxOnly.UseSelectable = true;
+            this.checkBoxOnly.UseStyleColors = true;
+            // 
+            // cbbExport
+            // 
+            this.cbbExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbExport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbExport.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cbbExport.FormattingEnabled = true;
+            this.cbbExport.Items.AddRange(new object[] {
+            "All",
+            "Static",
+            "Dynamic"});
+            this.cbbExport.Location = new System.Drawing.Point(108, 25);
+            this.cbbExport.Name = "cbbExport";
+            this.cbbExport.Size = new System.Drawing.Size(111, 25);
+            this.cbbExport.TabIndex = 24;
+            this.cbbExport.SelectedIndexChanged += new System.EventHandler(this.cbbExport_SelectedIndexChanged);
+            // 
+            // bunifuThinButton23
+            // 
+            this.bunifuThinButton23.ActiveBorderThickness = 1;
+            this.bunifuThinButton23.ActiveCornerRadius = 10;
+            this.bunifuThinButton23.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton23.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton23.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton23.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton23.BackgroundImage")));
+            this.bunifuThinButton23.ButtonText = "Export Objects";
+            this.bunifuThinButton23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton23.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton23.IdleBorderThickness = 1;
+            this.bunifuThinButton23.IdleCornerRadius = 10;
+            this.bunifuThinButton23.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton23.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton23.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton23.Location = new System.Drawing.Point(10, 215);
+            this.bunifuThinButton23.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuThinButton23.Name = "bunifuThinButton23";
+            this.bunifuThinButton23.Size = new System.Drawing.Size(110, 40);
+            this.bunifuThinButton23.TabIndex = 21;
+            this.bunifuThinButton23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton23.Click += new System.EventHandler(this.bunifuThinButton23_Click_2);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.Color.White;
+            this.groupBox7.Controls.Add(this.metroCheckBox1);
+            this.groupBox7.Controls.Add(this.bunifuThinButton26);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox7.Location = new System.Drawing.Point(0, 824);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox7.Size = new System.Drawing.Size(225, 102);
+            this.groupBox7.TabIndex = 20;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Import Objects ";
+            // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.metroCheckBox1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.metroCheckBox1.Location = new System.Drawing.Point(16, 21);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(159, 24);
+            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroCheckBox1.TabIndex = 26;
+            this.metroCheckBox1.Text = "Add Name Objects";
+            this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroCheckBox1.UseCustomBackColor = true;
+            this.metroCheckBox1.UseCustomForeColor = true;
+            this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.UseStyleColors = true;
+            // 
+            // bunifuThinButton26
+            // 
+            this.bunifuThinButton26.ActiveBorderThickness = 1;
+            this.bunifuThinButton26.ActiveCornerRadius = 10;
+            this.bunifuThinButton26.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton26.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton26.BackgroundImage")));
+            this.bunifuThinButton26.ButtonText = "Import Objects";
+            this.bunifuThinButton26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton26.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.IdleBorderThickness = 1;
+            this.bunifuThinButton26.IdleCornerRadius = 10;
+            this.bunifuThinButton26.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton26.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton26.Location = new System.Drawing.Point(13, 52);
+            this.bunifuThinButton26.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuThinButton26.Name = "bunifuThinButton26";
+            this.bunifuThinButton26.Size = new System.Drawing.Size(110, 40);
+            this.bunifuThinButton26.TabIndex = 21;
+            this.bunifuThinButton26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton26.Click += new System.EventHandler(this.bunifuThinButton26_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.BackColor = System.Drawing.Color.White;
+            this.groupBox6.Controls.Add(this.dataGridView);
+            this.groupBox6.Controls.Add(this.panel5);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox6.Location = new System.Drawing.Point(0, 464);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox6.Size = new System.Drawing.Size(225, 360);
+            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Setting Object";
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.type,
+            this.direction,
+            this.l});
+            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView.GridColor = System.Drawing.Color.Gray;
+            this.dataGridView.Location = new System.Drawing.Point(0, 18);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.SeaGreen;
+            this.dataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            this.dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.Size = new System.Drawing.Size(225, 250);
+            this.dataGridView.TabIndex = 3;
+            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
+            this.dataGridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label14);
+            this.panel5.Controls.Add(this.bunifuThinButton25);
+            this.panel5.Controls.Add(this.txbObjects);
+            this.panel5.Controls.Add(this.bunifuThinButton24);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 268);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(225, 92);
+            this.panel5.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(52, 17);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Objects";
+            // 
+            // bunifuThinButton25
+            // 
+            this.bunifuThinButton25.ActiveBorderThickness = 1;
+            this.bunifuThinButton25.ActiveCornerRadius = 10;
+            this.bunifuThinButton25.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton25.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton25.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton25.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton25.BackgroundImage")));
+            this.bunifuThinButton25.ButtonText = "Clear";
+            this.bunifuThinButton25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton25.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton25.IdleBorderThickness = 1;
+            this.bunifuThinButton25.IdleCornerRadius = 10;
+            this.bunifuThinButton25.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton25.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton25.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton25.Location = new System.Drawing.Point(10, 46);
+            this.bunifuThinButton25.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuThinButton25.Name = "bunifuThinButton25";
+            this.bunifuThinButton25.Size = new System.Drawing.Size(80, 35);
+            this.bunifuThinButton25.TabIndex = 23;
+            this.bunifuThinButton25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton25.Click += new System.EventHandler(this.bunifuThinButton25_Click);
+            // 
+            // txbObjects
+            // 
+            this.txbObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbObjects.BackColor = System.Drawing.Color.White;
+            this.txbObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbObjects.Enabled = false;
+            this.txbObjects.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txbObjects.Location = new System.Drawing.Point(92, 14);
+            this.txbObjects.Name = "txbObjects";
+            this.txbObjects.ReadOnly = true;
+            this.txbObjects.Size = new System.Drawing.Size(112, 25);
+            this.txbObjects.TabIndex = 15;
+            this.txbObjects.Text = "0";
+            // 
+            // bunifuThinButton24
+            // 
+            this.bunifuThinButton24.ActiveBorderThickness = 1;
+            this.bunifuThinButton24.ActiveCornerRadius = 10;
+            this.bunifuThinButton24.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton24.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton24.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton24.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton24.BackgroundImage")));
+            this.bunifuThinButton24.ButtonText = "Delete";
+            this.bunifuThinButton24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton24.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton24.IdleBorderThickness = 1;
+            this.bunifuThinButton24.IdleCornerRadius = 10;
+            this.bunifuThinButton24.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton24.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton24.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton24.Location = new System.Drawing.Point(124, 46);
+            this.bunifuThinButton24.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuThinButton24.Name = "bunifuThinButton24";
+            this.bunifuThinButton24.Size = new System.Drawing.Size(80, 35);
+            this.bunifuThinButton24.TabIndex = 22;
+            this.bunifuThinButton24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton24.Click += new System.EventHandler(this.bunifuThinButton24_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.White;
+            this.groupBox4.Controls.Add(this.cbbDirection);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.pictureBox2);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.checkColor);
+            this.groupBox4.Controls.Add(this.bunifuThinButton21);
+            this.groupBox4.Controls.Add(this.cbbType);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.cbbName);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox4.Location = new System.Drawing.Point(0, 261);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox4.Size = new System.Drawing.Size(225, 203);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Setting Object";
+            // 
+            // cbbDirection
+            // 
+            this.cbbDirection.AccessibleDescription = "";
+            this.cbbDirection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbDirection.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cbbDirection.FormattingEnabled = true;
+            this.cbbDirection.Items.AddRange(new object[] {
+            "Left",
+            "Right"});
+            this.cbbDirection.Location = new System.Drawing.Point(92, 89);
+            this.cbbDirection.Name = "cbbDirection";
+            this.cbbDirection.Size = new System.Drawing.Size(111, 25);
+            this.cbbDirection.TabIndex = 26;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(13, 92);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 17);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Direction";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Red;
+            this.pictureBox2.Location = new System.Drawing.Point(92, 121);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(112, 25);
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.bunifuThinButton23_Click_1);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 125);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 17);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Color";
+            // 
+            // checkColor
+            // 
+            this.checkColor.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.checkColor.ForeColor = System.Drawing.Color.SeaGreen;
+            this.checkColor.Location = new System.Drawing.Point(13, 164);
+            this.checkColor.Name = "checkColor";
+            this.checkColor.Size = new System.Drawing.Size(91, 24);
+            this.checkColor.Style = MetroFramework.MetroColorStyle.Green;
+            this.checkColor.TabIndex = 20;
+            this.checkColor.Text = "Fill Color";
+            this.checkColor.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.checkColor.UseCustomBackColor = true;
+            this.checkColor.UseCustomForeColor = true;
+            this.checkColor.UseSelectable = true;
+            this.checkColor.UseStyleColors = true;
+            this.checkColor.CheckedChanged += new System.EventHandler(this.checkColor_CheckedChanged);
+            // 
+            // bunifuThinButton21
+            // 
+            this.bunifuThinButton21.ActiveBorderThickness = 1;
+            this.bunifuThinButton21.ActiveCornerRadius = 10;
+            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
+            this.bunifuThinButton21.ButtonText = "Edit Object";
+            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleBorderThickness = 1;
+            this.bunifuThinButton21.IdleCornerRadius = 10;
+            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.Location = new System.Drawing.Point(109, 159);
+            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuThinButton21.Name = "bunifuThinButton21";
+            this.bunifuThinButton21.Size = new System.Drawing.Size(95, 35);
+            this.bunifuThinButton21.TabIndex = 21;
+            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click_1);
+            // 
+            // cbbType
+            // 
+            this.cbbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbType.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cbbType.FormattingEnabled = true;
+            this.cbbType.Items.AddRange(new object[] {
+            "Static",
+            "Dynamic"});
+            this.cbbType.Location = new System.Drawing.Point(92, 54);
+            this.cbbType.Name = "cbbType";
+            this.cbbType.Size = new System.Drawing.Size(111, 25);
+            this.cbbType.TabIndex = 18;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 58);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 17);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Type";
+            // 
+            // cbbName
+            // 
+            this.cbbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbName.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cbbName.FormattingEnabled = true;
+            this.cbbName.Items.AddRange(new object[] {
+            "Brick",
+            "Wall"});
+            this.cbbName.Location = new System.Drawing.Point(92, 22);
+            this.cbbName.Name = "cbbName";
+            this.cbbName.Size = new System.Drawing.Size(111, 25);
+            this.cbbName.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 17);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Name";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.btnSave);
+            this.groupBox3.Controls.Add(this.btnLoad);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox3.Location = new System.Drawing.Point(0, 169);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox3.Size = new System.Drawing.Size(225, 92);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "TileSet Setting";
+            // 
+            // btnSave
+            // 
+            this.btnSave.ActiveBorderThickness = 1;
+            this.btnSave.ActiveCornerRadius = 10;
+            this.btnSave.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSave.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.ButtonText = "Export Tiles";
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.IdleBorderThickness = 1;
+            this.btnSave.IdleCornerRadius = 10;
+            this.btnSave.IdleFillColor = System.Drawing.Color.White;
+            this.btnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.Location = new System.Drawing.Point(121, 44);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(95, 35);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.ActiveBorderThickness = 1;
+            this.btnLoad.ActiveCornerRadius = 10;
+            this.btnLoad.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnLoad.ActiveForecolor = System.Drawing.Color.White;
+            this.btnLoad.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnLoad.BackColor = System.Drawing.Color.White;
+            this.btnLoad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoad.BackgroundImage")));
+            this.btnLoad.ButtonText = "Load Tiles";
+            this.btnLoad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnLoad.IdleBorderThickness = 1;
+            this.btnLoad.IdleCornerRadius = 10;
+            this.btnLoad.IdleFillColor = System.Drawing.Color.White;
+            this.btnLoad.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnLoad.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnLoad.Location = new System.Drawing.Point(13, 44);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(95, 35);
+            this.btnLoad.TabIndex = 17;
+            this.btnLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnLoad.Click += new System.EventHandler(this.bunifuThinButton23_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Tileset";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(110, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 17);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "100";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(178, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // groupBox1
             // 
@@ -314,332 +1088,11 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "X";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(5, 30);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1274, 676);
-            this.panel3.TabIndex = 1;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.panel1);
-            this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1032, 676);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Map";
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.pictureBoxMain);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 21);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1026, 560);
-            this.panel1.TabIndex = 0;
-            // 
-            // pictureBoxMain
-            // 
-            this.pictureBoxMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxMain.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBoxMain.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxMain.Name = "pictureBoxMain";
-            this.pictureBoxMain.Size = new System.Drawing.Size(355, 113);
-            this.pictureBoxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMain.TabIndex = 1;
-            this.pictureBoxMain.TabStop = false;
-            this.pictureBoxMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxMain_Paint);
-            this.pictureBoxMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMain_MouseDown);
-            this.pictureBoxMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseMove);
-            this.pictureBoxMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseUp);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.cPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel2.Location = new System.Drawing.Point(3, 581);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0);
-            this.panel2.Size = new System.Drawing.Size(1026, 92);
-            this.panel2.TabIndex = 0;
-            this.panel2.TabStop = false;
-            this.panel2.Text = "Tileset";
-            // 
-            // cPanel1
-            // 
-            this.cPanel1.AutoScroll = true;
-            this.cPanel1.Controls.Add(this.pictureBoxSub);
-            this.cPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cPanel1.Location = new System.Drawing.Point(0, 18);
-            this.cPanel1.Name = "cPanel1";
-            this.cPanel1.Size = new System.Drawing.Size(1026, 74);
-            this.cPanel1.TabIndex = 0;
-            // 
-            // pictureBoxSub
-            // 
-            this.pictureBoxSub.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxSub.Name = "pictureBoxSub";
-            this.pictureBoxSub.Size = new System.Drawing.Size(230, 71);
-            this.pictureBoxSub.TabIndex = 1;
-            this.pictureBoxSub.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.AutoScroll = true;
-            this.panel4.BackColor = System.Drawing.Color.Maroon;
-            this.panel4.Controls.Add(this.groupBox5);
-            this.panel4.Controls.Add(this.groupBox7);
-            this.panel4.Controls.Add(this.groupBox6);
-            this.panel4.Controls.Add(this.groupBox4);
-            this.panel4.Controls.Add(this.groupBox3);
-            this.panel4.Controls.Add(this.groupBox1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1032, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(5);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(242, 676);
-            this.panel4.TabIndex = 2;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.Color.White;
-            this.groupBox5.Controls.Add(this.groupBox8);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.checkBoxInclude);
-            this.groupBox5.Controls.Add(this.checkBoxOnly);
-            this.groupBox5.Controls.Add(this.cbbExport);
-            this.groupBox5.Controls.Add(this.bunifuThinButton23);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox5.Location = new System.Drawing.Point(0, 886);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox5.Size = new System.Drawing.Size(225, 261);
-            this.groupBox5.TabIndex = 28;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Export Objects ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 17);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "Export Type";
-            // 
-            // checkBoxInclude
-            // 
-            this.checkBoxInclude.Checked = true;
-            this.checkBoxInclude.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxInclude.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.checkBoxInclude.ForeColor = System.Drawing.Color.SeaGreen;
-            this.checkBoxInclude.Location = new System.Drawing.Point(10, 153);
-            this.checkBoxInclude.Name = "checkBoxInclude";
-            this.checkBoxInclude.Size = new System.Drawing.Size(159, 24);
-            this.checkBoxInclude.Style = MetroFramework.MetroColorStyle.Green;
-            this.checkBoxInclude.TabIndex = 26;
-            this.checkBoxInclude.Text = "Include QuadTree";
-            this.checkBoxInclude.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.checkBoxInclude.UseCustomBackColor = true;
-            this.checkBoxInclude.UseCustomForeColor = true;
-            this.checkBoxInclude.UseSelectable = true;
-            this.checkBoxInclude.UseStyleColors = true;
-            // 
-            // checkBoxOnly
-            // 
-            this.checkBoxOnly.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.checkBoxOnly.ForeColor = System.Drawing.Color.SeaGreen;
-            this.checkBoxOnly.Location = new System.Drawing.Point(10, 186);
-            this.checkBoxOnly.Name = "checkBoxOnly";
-            this.checkBoxOnly.Size = new System.Drawing.Size(139, 24);
-            this.checkBoxOnly.Style = MetroFramework.MetroColorStyle.Green;
-            this.checkBoxOnly.TabIndex = 25;
-            this.checkBoxOnly.Text = "One File Quadtree";
-            this.checkBoxOnly.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.checkBoxOnly.UseCustomBackColor = true;
-            this.checkBoxOnly.UseCustomForeColor = true;
-            this.checkBoxOnly.UseSelectable = true;
-            this.checkBoxOnly.UseStyleColors = true;
-            // 
-            // cbbExport
-            // 
-            this.cbbExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbExport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbExport.ForeColor = System.Drawing.Color.SeaGreen;
-            this.cbbExport.FormattingEnabled = true;
-            this.cbbExport.Items.AddRange(new object[] {
-            "All",
-            "Static",
-            "Dynamic"});
-            this.cbbExport.Location = new System.Drawing.Point(108, 25);
-            this.cbbExport.Name = "cbbExport";
-            this.cbbExport.Size = new System.Drawing.Size(111, 25);
-            this.cbbExport.TabIndex = 24;
-            this.cbbExport.SelectedIndexChanged += new System.EventHandler(this.cbbExport_SelectedIndexChanged);
-            // 
-            // bunifuThinButton23
-            // 
-            this.bunifuThinButton23.ActiveBorderThickness = 1;
-            this.bunifuThinButton23.ActiveCornerRadius = 10;
-            this.bunifuThinButton23.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton23.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton23.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton23.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton23.BackgroundImage")));
-            this.bunifuThinButton23.ButtonText = "Export Objects";
-            this.bunifuThinButton23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton23.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton23.IdleBorderThickness = 1;
-            this.bunifuThinButton23.IdleCornerRadius = 10;
-            this.bunifuThinButton23.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton23.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton23.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton23.Location = new System.Drawing.Point(10, 215);
-            this.bunifuThinButton23.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuThinButton23.Name = "bunifuThinButton23";
-            this.bunifuThinButton23.Size = new System.Drawing.Size(110, 40);
-            this.bunifuThinButton23.TabIndex = 21;
-            this.bunifuThinButton23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton23.Click += new System.EventHandler(this.bunifuThinButton23_Click_2);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.BackColor = System.Drawing.Color.White;
-            this.groupBox7.Controls.Add(this.metroCheckBox1);
-            this.groupBox7.Controls.Add(this.bunifuThinButton26);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox7.Location = new System.Drawing.Point(0, 784);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox7.Size = new System.Drawing.Size(225, 102);
-            this.groupBox7.TabIndex = 20;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Import Objects ";
-            // 
-            // metroCheckBox1
-            // 
-            this.metroCheckBox1.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.metroCheckBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.metroCheckBox1.Location = new System.Drawing.Point(16, 21);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(159, 24);
-            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Green;
-            this.metroCheckBox1.TabIndex = 26;
-            this.metroCheckBox1.Text = "Add Name Objects";
-            this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox1.UseCustomBackColor = true;
-            this.metroCheckBox1.UseCustomForeColor = true;
-            this.metroCheckBox1.UseSelectable = true;
-            this.metroCheckBox1.UseStyleColors = true;
-            // 
-            // bunifuThinButton26
-            // 
-            this.bunifuThinButton26.ActiveBorderThickness = 1;
-            this.bunifuThinButton26.ActiveCornerRadius = 10;
-            this.bunifuThinButton26.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton26.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton26.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton26.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton26.BackgroundImage")));
-            this.bunifuThinButton26.ButtonText = "Import Objects";
-            this.bunifuThinButton26.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton26.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton26.IdleBorderThickness = 1;
-            this.bunifuThinButton26.IdleCornerRadius = 10;
-            this.bunifuThinButton26.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton26.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton26.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton26.Location = new System.Drawing.Point(13, 52);
-            this.bunifuThinButton26.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuThinButton26.Name = "bunifuThinButton26";
-            this.bunifuThinButton26.Size = new System.Drawing.Size(110, 40);
-            this.bunifuThinButton26.TabIndex = 21;
-            this.bunifuThinButton26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton26.Click += new System.EventHandler(this.bunifuThinButton26_Click);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.BackColor = System.Drawing.Color.White;
-            this.groupBox6.Controls.Add(this.dataGridView);
-            this.groupBox6.Controls.Add(this.panel5);
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox6.Location = new System.Drawing.Point(0, 424);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox6.Size = new System.Drawing.Size(225, 360);
-            this.groupBox6.TabIndex = 4;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Setting Object";
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.type,
-            this.l});
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView.Location = new System.Drawing.Point(0, 18);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.SeaGreen;
-            this.dataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            this.dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(225, 250);
-            this.dataGridView.TabIndex = 3;
-            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
-            this.dataGridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
-            // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            this.name.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            this.name.DefaultCellStyle = dataGridViewCellStyle2;
             this.name.HeaderText = "Name";
             this.name.Name = "name";
             this.name.ReadOnly = true;
@@ -653,6 +1106,14 @@
             this.type.ReadOnly = true;
             this.type.Width = 60;
             // 
+            // direction
+            // 
+            this.direction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.direction.HeaderText = "Direction";
+            this.direction.Name = "direction";
+            this.direction.ReadOnly = true;
+            this.direction.Width = 85;
+            // 
             // l
             // 
             this.l.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -660,429 +1121,6 @@
             this.l.Name = "l";
             this.l.ReadOnly = true;
             this.l.Width = 82;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label14);
-            this.panel5.Controls.Add(this.bunifuThinButton25);
-            this.panel5.Controls.Add(this.txbObjects);
-            this.panel5.Controls.Add(this.bunifuThinButton24);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 268);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(225, 92);
-            this.panel5.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 13);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 17);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Objects";
-            // 
-            // bunifuThinButton25
-            // 
-            this.bunifuThinButton25.ActiveBorderThickness = 1;
-            this.bunifuThinButton25.ActiveCornerRadius = 10;
-            this.bunifuThinButton25.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton25.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton25.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton25.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton25.BackgroundImage")));
-            this.bunifuThinButton25.ButtonText = "Clear";
-            this.bunifuThinButton25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton25.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton25.IdleBorderThickness = 1;
-            this.bunifuThinButton25.IdleCornerRadius = 10;
-            this.bunifuThinButton25.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton25.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton25.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton25.Location = new System.Drawing.Point(10, 46);
-            this.bunifuThinButton25.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuThinButton25.Name = "bunifuThinButton25";
-            this.bunifuThinButton25.Size = new System.Drawing.Size(80, 35);
-            this.bunifuThinButton25.TabIndex = 23;
-            this.bunifuThinButton25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton25.Click += new System.EventHandler(this.bunifuThinButton25_Click);
-            // 
-            // txbObjects
-            // 
-            this.txbObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbObjects.BackColor = System.Drawing.Color.White;
-            this.txbObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbObjects.Enabled = false;
-            this.txbObjects.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbObjects.Location = new System.Drawing.Point(92, 14);
-            this.txbObjects.Name = "txbObjects";
-            this.txbObjects.ReadOnly = true;
-            this.txbObjects.Size = new System.Drawing.Size(112, 25);
-            this.txbObjects.TabIndex = 15;
-            this.txbObjects.Text = "0";
-            // 
-            // bunifuThinButton24
-            // 
-            this.bunifuThinButton24.ActiveBorderThickness = 1;
-            this.bunifuThinButton24.ActiveCornerRadius = 10;
-            this.bunifuThinButton24.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton24.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton24.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton24.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton24.BackgroundImage")));
-            this.bunifuThinButton24.ButtonText = "Delete";
-            this.bunifuThinButton24.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton24.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton24.IdleBorderThickness = 1;
-            this.bunifuThinButton24.IdleCornerRadius = 10;
-            this.bunifuThinButton24.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton24.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton24.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton24.Location = new System.Drawing.Point(124, 46);
-            this.bunifuThinButton24.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuThinButton24.Name = "bunifuThinButton24";
-            this.bunifuThinButton24.Size = new System.Drawing.Size(80, 35);
-            this.bunifuThinButton24.TabIndex = 22;
-            this.bunifuThinButton24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton24.Click += new System.EventHandler(this.bunifuThinButton24_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.BackColor = System.Drawing.Color.White;
-            this.groupBox4.Controls.Add(this.pictureBox2);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.checkColor);
-            this.groupBox4.Controls.Add(this.bunifuThinButton21);
-            this.groupBox4.Controls.Add(this.cbbType);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.cbbName);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox4.Location = new System.Drawing.Point(0, 261);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Size = new System.Drawing.Size(225, 163);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Setting Object";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Red;
-            this.pictureBox2.Location = new System.Drawing.Point(92, 87);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(112, 25);
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.bunifuThinButton23_Click_1);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 91);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 17);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Color";
-            // 
-            // checkColor
-            // 
-            this.checkColor.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.checkColor.ForeColor = System.Drawing.Color.SeaGreen;
-            this.checkColor.Location = new System.Drawing.Point(13, 125);
-            this.checkColor.Name = "checkColor";
-            this.checkColor.Size = new System.Drawing.Size(91, 24);
-            this.checkColor.Style = MetroFramework.MetroColorStyle.Green;
-            this.checkColor.TabIndex = 20;
-            this.checkColor.Text = "Fill Color";
-            this.checkColor.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.checkColor.UseCustomBackColor = true;
-            this.checkColor.UseCustomForeColor = true;
-            this.checkColor.UseSelectable = true;
-            this.checkColor.UseStyleColors = true;
-            this.checkColor.CheckedChanged += new System.EventHandler(this.checkColor_CheckedChanged);
-            // 
-            // bunifuThinButton21
-            // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 10;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Edit Object";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 10;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(109, 120);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(95, 35);
-            this.bunifuThinButton21.TabIndex = 21;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click_1);
-            // 
-            // cbbType
-            // 
-            this.cbbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbType.ForeColor = System.Drawing.Color.SeaGreen;
-            this.cbbType.FormattingEnabled = true;
-            this.cbbType.Items.AddRange(new object[] {
-            "Static",
-            "Dynamic"});
-            this.cbbType.Location = new System.Drawing.Point(92, 54);
-            this.cbbType.Name = "cbbType";
-            this.cbbType.Size = new System.Drawing.Size(111, 25);
-            this.cbbType.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 58);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 17);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Type";
-            // 
-            // cbbName
-            // 
-            this.cbbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbName.ForeColor = System.Drawing.Color.SeaGreen;
-            this.cbbName.FormattingEnabled = true;
-            this.cbbName.Items.AddRange(new object[] {
-            "Brick",
-            "Wall"});
-            this.cbbName.Location = new System.Drawing.Point(92, 22);
-            this.cbbName.Name = "cbbName";
-            this.cbbName.Size = new System.Drawing.Size(111, 25);
-            this.cbbName.TabIndex = 17;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 17);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Name";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.btnSave);
-            this.groupBox3.Controls.Add(this.btnLoad);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox3.Location = new System.Drawing.Point(0, 169);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(225, 92);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "TileSet Setting";
-            // 
-            // btnSave
-            // 
-            this.btnSave.ActiveBorderThickness = 1;
-            this.btnSave.ActiveCornerRadius = 10;
-            this.btnSave.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSave.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BackColor = System.Drawing.Color.White;
-            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
-            this.btnSave.ButtonText = "Export Tiles";
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.IdleBorderThickness = 1;
-            this.btnSave.IdleCornerRadius = 10;
-            this.btnSave.IdleFillColor = System.Drawing.Color.White;
-            this.btnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.Location = new System.Drawing.Point(121, 44);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(95, 35);
-            this.btnSave.TabIndex = 18;
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.ActiveBorderThickness = 1;
-            this.btnLoad.ActiveCornerRadius = 10;
-            this.btnLoad.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnLoad.ActiveForecolor = System.Drawing.Color.White;
-            this.btnLoad.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnLoad.BackColor = System.Drawing.Color.White;
-            this.btnLoad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoad.BackgroundImage")));
-            this.btnLoad.ButtonText = "Load Tiles";
-            this.btnLoad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnLoad.IdleBorderThickness = 1;
-            this.btnLoad.IdleCornerRadius = 10;
-            this.btnLoad.IdleFillColor = System.Drawing.Color.White;
-            this.btnLoad.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnLoad.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnLoad.Location = new System.Drawing.Point(13, 44);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(95, 35);
-            this.btnLoad.TabIndex = 17;
-            this.btnLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnLoad.Click += new System.EventHandler(this.bunifuThinButton23_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Tileset";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(110, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 17);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "100";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(178, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
-            // openImage
-            // 
-            this.openImage.Filter = "Image File (*.bmp, *.png, *.jpg, *.jpeg) | *.bmp; *.png; *.jpg; *.jpeg";
-            this.openImage.Title = "Open Map";
-            // 
-            // saveImage
-            // 
-            this.saveImage.Filter = "PNG (*.png) | *.png; | BMP (*.bmp) | *.bmp; | JPEG (*.jpg, *.jpeg) | *.jpg; *.jpe" +
-    "g";
-            this.saveImage.Title = "Save TileSet";
-            // 
-            // saveQuadtree
-            // 
-            this.saveQuadtree.Filter = "TXT FIle(*.txt) | *.txt";
-            // 
-            // openFileTxt
-            // 
-            this.openFileTxt.Filter = "TXT FIle(*.txt) | *.txt";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 27);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 17);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "Depth";
-            // 
-            // txbDepth
-            // 
-            this.txbDepth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDepth.BackColor = System.Drawing.Color.White;
-            this.txbDepth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbDepth.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbDepth.Location = new System.Drawing.Point(103, 23);
-            this.txbDepth.Name = "txbDepth";
-            this.txbDepth.Size = new System.Drawing.Size(112, 25);
-            this.txbDepth.TabIndex = 29;
-            this.txbDepth.Text = "10";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 17);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Min Size";
-            // 
-            // txbMinHeight
-            // 
-            this.txbMinHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbMinHeight.BackColor = System.Drawing.Color.White;
-            this.txbMinHeight.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbMinHeight.Location = new System.Drawing.Point(170, 54);
-            this.txbMinHeight.Name = "txbMinHeight";
-            this.txbMinHeight.Size = new System.Drawing.Size(45, 25);
-            this.txbMinHeight.TabIndex = 32;
-            this.txbMinHeight.Text = "128";
-            // 
-            // txbMinWidth
-            // 
-            this.txbMinWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbMinWidth.BackColor = System.Drawing.Color.White;
-            this.txbMinWidth.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txbMinWidth.Location = new System.Drawing.Point(103, 54);
-            this.txbMinWidth.Name = "txbMinWidth";
-            this.txbMinWidth.Size = new System.Drawing.Size(45, 25);
-            this.txbMinWidth.TabIndex = 31;
-            this.txbMinWidth.Text = "128";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(152, 58);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(16, 17);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "X";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.BackColor = System.Drawing.Color.White;
-            this.groupBox8.Controls.Add(this.label11);
-            this.groupBox8.Controls.Add(this.txbMinHeight);
-            this.groupBox8.Controls.Add(this.txbDepth);
-            this.groupBox8.Controls.Add(this.txbMinWidth);
-            this.groupBox8.Controls.Add(this.label12);
-            this.groupBox8.Controls.Add(this.label13);
-            this.groupBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox8.Location = new System.Drawing.Point(5, 55);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox8.Size = new System.Drawing.Size(225, 90);
-            this.groupBox8.TabIndex = 34;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "QuadTree";
             // 
             // MapEditorForm
             // 
@@ -1101,18 +1139,18 @@
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "Map Editor";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapEditorForm_KeyDown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.cPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSub)).EndInit();
             this.panel4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -1124,8 +1162,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1187,10 +1225,7 @@
         private System.Windows.Forms.Label label10;
         private MetroFramework.Controls.MetroCheckBox checkBoxInclude;
         private MetroFramework.Controls.MetroCheckBox checkBoxOnly;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.DataGridViewTextBoxColumn location;
-        private System.Windows.Forms.DataGridViewTextBoxColumn l;
         private System.Windows.Forms.GroupBox groupBox7;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton26;
@@ -1202,6 +1237,12 @@
         private System.Windows.Forms.TextBox txbMinWidth;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbbDirection;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn l;
     }
 }
 

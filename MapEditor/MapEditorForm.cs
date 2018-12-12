@@ -82,6 +82,7 @@ namespace MapEditor
             cbbType.SelectedIndex = 0;
             cbbName.SelectedIndex = 0;
             cbbExport.SelectedIndex = 0;
+            cbbDirection.SelectedIndex = 0;
         }
 
         private void bunifuThinButton22_Click_1(object sender, EventArgs e)
@@ -504,8 +505,8 @@ namespace MapEditor
                 Rectangle rect = GetRectangle();
                 if (rect.Width > 0 && rect.Height > 0)
                 {
-                    objects.Add(id, new CObject(id++, rect, pictureBox2.BackColor, cbbName.SelectedIndex, cbbType.SelectedIndex));
-                    AddGridView(rect, cbbName.Text, cbbType.Text);
+                    objects.Add(id, new CObject(id++, rect, pictureBox2.BackColor, cbbName.SelectedIndex, cbbType.SelectedIndex, cbbDirection.SelectedIndex == 0));
+                    AddGridView(rect, cbbName.Text, cbbType.Text, cbbDirection.Text);
                     
                     pictureBoxMain.Invalidate();
                     txbObjects.Text = objects.Count.ToString();
@@ -513,9 +514,9 @@ namespace MapEditor
             }
         }
 
-        private void AddGridView(Rectangle rect, string name, string type)
+        private void AddGridView(Rectangle rect, string name, string type, string direction)
         {
-            dataGridView.Rows.Add(name, type, rect.ToString());
+            dataGridView.Rows.Add(name, type, direction, rect.ToString());
             dataGridView.Rows[dataGridView.RowCount - 1].Tag = id - 1;
         }
 
@@ -636,8 +637,20 @@ namespace MapEditor
                         SaveAll(path, name);
                         break;
                 }
-
+                SaveInfo(path, name);
             }
+        }
+
+        private void SaveInfo(string path, string name)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < cbbName.Items.Count; i++)
+            {
+                stringBuilder.Append(i + " " + cbbName.Items[i].ToString());
+                stringBuilder.AppendLine();
+            }
+            string file = Path.Combine(path, name + "_info.txt");
+            File.WriteAllText(file, stringBuilder.ToString());
         }
 
         private void CheckValueTrue(TextBox textBox,int defaultValue, out int value)
@@ -729,7 +742,7 @@ namespace MapEditor
             StreamWriter stream = new StreamWriter(path);
             foreach (var item in objs)
             {
-                stream.Write(item.ID + " " + item.idName + " " + item.type + " " + item.region.X + " " + item.region.Y + " " + item.region.Width + " " + item.region.Height);
+                stream.Write(item.ID + " " + item.idName + " " + item.type + " " + item.region.X + " " + item.region.Y + " " + item.region.Width + " " + item.region.Height + " " + (item.direction ? "1" : "0"));
                 stream.WriteLine();
                 stream.Flush();
             }
@@ -821,7 +834,8 @@ namespace MapEditor
             y = int.Parse(obj[4]);
             width = int.Parse(obj[5]);
             height = int.Parse(obj[6]);
-            if(!names.ContainsKey(idName))
+            string direction = obj[7] == "1" ? "Left" : "Right";
+            if (!names.ContainsKey(idName))
             {
                 
                 names[idName] = "Name " + idName;
@@ -830,9 +844,10 @@ namespace MapEditor
                 
             }
             string type = idType == 0 ? "Static" : "Dynamic";
+            
             Rectangle rect = new Rectangle(x, y, width, height);
-            AddGridView(rect, names[idName], type);
-            return new CObject(id, rect, colors[idName], idName, idType);
+            AddGridView(rect, names[idName], type, direction);
+            return new CObject(id, rect, colors[idName], idName, idType, obj[7] == "1");
         }
     }
 }
