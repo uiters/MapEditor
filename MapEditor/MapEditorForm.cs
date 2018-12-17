@@ -46,6 +46,8 @@ namespace MapEditor
         private StringBuilder matrixCells;
         private List<Bitmap> tilesImage;
         private Bitmap image;
+        private Bitmap imageSub;
+
         private Pen pen;
 
         private bool isDraw = false;
@@ -95,17 +97,19 @@ namespace MapEditor
             {
                 labelNameImage.Text = Path.GetFileName(openImage.FileName);
                 image = (Bitmap)Image.FromFile(openImage.FileName);//layer draw background
+
+                widthMap = image.Width;
+                heightMap = image.Height;
+
+                GetCellSize();
+
                 pictureBoxMain.BackgroundImage = (Bitmap)image.Clone();
                 pictureBoxMain.Width = pictureBoxMain.BackgroundImage.Width;
                 pictureBoxMain.Height = pictureBoxMain.BackgroundImage.Height;
                 labelSize.Text = pictureBoxMain.Width + " X " + pictureBoxMain.Height;
 
-                widthMap = pictureBoxMain.Width;
-                heightMap = pictureBoxMain.Height;
 
-                GetCellSize();
-
-                pictureBoxMain.Image = new Bitmap(pictureBoxMain.Width, pictureBoxMain.Height);//layer draw cells
+                pictureBoxMain.Image = new Bitmap(widthMap, heightMap);//layer draw cells
 
                 DrawCells();
             };
@@ -113,11 +117,11 @@ namespace MapEditor
 
         private void GetCellSize()
         {
-            CheckValueTrue(txbWidth, 10, out width);
-            CheckValueTrue(txbHeight, 10, out height);
+            CheckValueTrue(txbWidth, 128, out width);
+            CheckValueTrue(txbHeight, 128, out height);
 
-            cols = (int)Math.Round(pictureBoxMain.BackgroundImage.Width / (float)width + 0.99f, 1, MidpointRounding.ToEven);
-            rows = (int)Math.Round(pictureBoxMain.BackgroundImage.Height / (float)height + 0.99f, 1, MidpointRounding.ToEven);
+            cols = (int)(widthMap / (float)width + 0.99f);
+            rows = (int)(heightMap / (float)height + 0.99f);
 
             txbTile.Text = (rows * cols).ToString();
         }
@@ -276,12 +280,13 @@ namespace MapEditor
 
             tilesImage.Clear();
             matrixCells.Clear();
-
+            pictureBoxSub.BackgroundImage = null;
+            pictureBoxSub.Image = null;
             GC.Collect();
 
             isLoadTile = true;
             success = false;
-            pictureBoxSub.BackgroundImage = null;
+
             new Thread(LoadTileSet)
             {
                 IsBackground = true
@@ -292,13 +297,15 @@ namespace MapEditor
         {
             try
             {
-                int width = this.width;
-                int height = this.height;
-                //tiles = new int[width, height];
                 if (image == null)
                 {
                     return;
                 }
+
+                float width = this.width;
+                float height = this.height;
+
+
                 bool isExists = false;
                 int id = 0;
 
@@ -306,10 +313,10 @@ namespace MapEditor
                 {
                     for (int col = 0; col < cols; ++col)
                     {
-                        Bitmap b = new Bitmap(width, height);
+                        Bitmap b = new Bitmap((int)width, (int)height);
                         using (Graphics graphic = Graphics.FromImage(b))
                         {
-                            graphic.DrawImage(image, new Rectangle(0, 0, width, height), new Rectangle(col * width, row * height, width, height), GraphicsUnit.Pixel);
+                            graphic.DrawImage(image, new RectangleF(0, 0, width, height), new RectangleF(col * width, row * height, width, height), GraphicsUnit.Pixel);
                         }
                         isExists = false;
                         for (int index = 0; index < tilesImage.Count; ++index)
@@ -341,23 +348,23 @@ namespace MapEditor
                 {
                     pictureBoxSub.Invoke(new Action(() =>
                     {
-                        SetSizeSub(width, height);
+                        SetSizeSub((int)width, (int)height);
                     }));
                 }
-                else SetSizeSub(width, height);
+                else SetSizeSub((int)width, (int)height);
                 if (pictureBoxSub.BackgroundImage == null)
                 {
                     return;
                 }
                 success = true;
-                using (Graphics graphic = Graphics.FromImage(pictureBoxSub.BackgroundImage))
+                using (Graphics graphic = Graphics.FromImage(imageSub))
                 {
                     for (int i = 0; i < tilesImage.Count; ++i)
                     {
-                        graphic.DrawImage(tilesImage[i], new Rectangle(i * width, 0, width, height), new Rectangle(0, 0, width, height), GraphicsUnit.Pixel);
+                        graphic.DrawImage(tilesImage[i], new RectangleF(i * width, 0, width, height), new RectangleF(0, 0, width, height), GraphicsUnit.Pixel);
                     }
-
                 }
+                pictureBoxSub.BackgroundImage = imageSub;
                 if (isDrawCells)
                     using (Graphics graphic = Graphics.FromImage(pictureBoxSub.Image))
                         DrawCols(graphic, pen, tilesImage.Count);
@@ -383,6 +390,7 @@ namespace MapEditor
             pictureBoxSub.Height = height;
             pictureBoxSub.BackgroundImage = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
             pictureBoxSub.Image = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
+            imageSub = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
         }
 
         private void StopLoad()
@@ -395,7 +403,6 @@ namespace MapEditor
             else
                 pictureBox1.Hide();
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (isLoadTile) return;
@@ -416,6 +423,8 @@ namespace MapEditor
                     IsBackground = true
                 }.Start(new object[] { pathImage, pathTxt, format });
             }
+
+
         }
 
         private void SaveTileSet(object parameter)
@@ -426,8 +435,8 @@ namespace MapEditor
                 string pathImage = (string)info[0];
                 string pathTxt = (string)info[1];
                 ImageFormat format = (ImageFormat)info[2];
-                pictureBoxSub.BackgroundImage.Save(pathImage, format);
-                string text = tilesImage.Count + " " + rows + " " + cols + " " + width + " " + height + Environment.NewLine + matrixCells.ToString();
+                imageSub.Save(pathImage, format);
+                string text = tilesImage.Count + " " + rows + " " + cols + " " + width + " " + height + " " + Environment.NewLine + matrixCells.ToString();
                 SaveFileTXT(pathTxt, text);
             }
             catch (Exception ex)

@@ -33,14 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.GroupBox();
-            this.openImage = new System.Windows.Forms.OpenFileDialog();
-            this.saveImage = new System.Windows.Forms.SaveFileDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.saveQuadtree = new System.Windows.Forms.SaveFileDialog();
-            this.openFileTxt = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new MapEditor.CPanel();
             this.pictureBoxMain = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.GroupBox();
             this.cPanel1 = new MapEditor.CPanel();
             this.pictureBoxSub = new System.Windows.Forms.PictureBox();
             this.panel4 = new MapEditor.CPanel();
@@ -62,6 +57,10 @@
             this.bunifuThinButton26 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.l = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.bunifuThinButton25 = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -97,15 +96,16 @@
             this.txbWidth = new System.Windows.Forms.TextBox();
             this.checkBox = new MetroFramework.Controls.MetroCheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.l = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openImage = new System.Windows.Forms.OpenFileDialog();
+            this.saveImage = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.saveQuadtree = new System.Windows.Forms.SaveFileDialog();
+            this.openFileTxt = new System.Windows.Forms.OpenFileDialog();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
+            this.panel2.SuspendLayout();
             this.cPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSub)).BeginInit();
             this.panel4.SuspendLayout();
@@ -149,40 +149,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Map";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.cPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel2.Location = new System.Drawing.Point(3, 581);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0);
-            this.panel2.Size = new System.Drawing.Size(1026, 92);
-            this.panel2.TabIndex = 0;
-            this.panel2.TabStop = false;
-            this.panel2.Text = "Tileset";
-            // 
-            // openImage
-            // 
-            this.openImage.Filter = "Image File (*.bmp, *.png, *.jpg, *.jpeg) | *.bmp; *.png; *.jpg; *.jpeg";
-            this.openImage.Title = "Open Map";
-            // 
-            // saveImage
-            // 
-            this.saveImage.Filter = "PNG (*.png) | *.png; | BMP (*.bmp) | *.bmp; | JPEG (*.jpg, *.jpeg) | *.jpg; *.jpe" +
-    "g";
-            this.saveImage.Title = "Save TileSet";
-            // 
-            // saveQuadtree
-            // 
-            this.saveQuadtree.Filter = "TXT FIle(*.txt) | *.txt";
-            // 
-            // openFileTxt
-            // 
-            this.openFileTxt.Filter = "TXT FIle(*.txt) | *.txt";
-            // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
@@ -200,13 +166,27 @@
             this.pictureBoxMain.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxMain.Name = "pictureBoxMain";
             this.pictureBoxMain.Size = new System.Drawing.Size(355, 113);
-            this.pictureBoxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMain.TabIndex = 1;
             this.pictureBoxMain.TabStop = false;
             this.pictureBoxMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxMain_Paint);
             this.pictureBoxMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMain_MouseDown);
             this.pictureBoxMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseMove);
             this.pictureBoxMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseUp);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.cPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.panel2.Location = new System.Drawing.Point(3, 581);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0);
+            this.panel2.Size = new System.Drawing.Size(1026, 92);
+            this.panel2.TabIndex = 0;
+            this.panel2.TabStop = false;
+            this.panel2.Text = "Tileset";
             // 
             // cPanel1
             // 
@@ -220,6 +200,7 @@
             // 
             // pictureBoxSub
             // 
+            this.pictureBoxSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxSub.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxSub.Name = "pictureBoxSub";
             this.pictureBoxSub.Size = new System.Drawing.Size(230, 71);
@@ -544,6 +525,40 @@
             this.dataGridView.TabIndex = 3;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             this.dataGridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            this.name.DefaultCellStyle = dataGridViewCellStyle2;
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 68;
+            // 
+            // type
+            // 
+            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.type.HeaderText = "Type";
+            this.type.Name = "type";
+            this.type.ReadOnly = true;
+            this.type.Width = 60;
+            // 
+            // direction
+            // 
+            this.direction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.direction.HeaderText = "Direction";
+            this.direction.Name = "direction";
+            this.direction.ReadOnly = true;
+            this.direction.Width = 85;
+            // 
+            // l
+            // 
+            this.l.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.l.HeaderText = "Location";
+            this.l.Name = "l";
+            this.l.ReadOnly = true;
+            this.l.Width = 82;
             // 
             // panel5
             // 
@@ -1032,7 +1047,7 @@
             this.txbHeight.Name = "txbHeight";
             this.txbHeight.Size = new System.Drawing.Size(45, 25);
             this.txbHeight.TabIndex = 1;
-            this.txbHeight.Text = "32";
+            this.txbHeight.Text = "256";
             this.txbHeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_KeyDown);
             this.txbHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_KeyPress);
             this.txbHeight.Leave += new System.EventHandler(this.txb_Leave);
@@ -1055,7 +1070,7 @@
             this.txbWidth.Name = "txbWidth";
             this.txbWidth.Size = new System.Drawing.Size(45, 25);
             this.txbWidth.TabIndex = 0;
-            this.txbWidth.Text = "32";
+            this.txbWidth.Text = "256";
             this.txbWidth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_KeyDown);
             this.txbWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_KeyPress);
             this.txbWidth.Leave += new System.EventHandler(this.txb_Leave);
@@ -1088,39 +1103,24 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "X";
             // 
-            // name
+            // openImage
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            this.name.DefaultCellStyle = dataGridViewCellStyle2;
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 68;
+            this.openImage.Filter = "Image File (*.bmp, *.png, *.jpg, *.jpeg) | *.bmp; *.png; *.jpg; *.jpeg";
+            this.openImage.Title = "Open Map";
             // 
-            // type
+            // saveImage
             // 
-            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.type.HeaderText = "Type";
-            this.type.Name = "type";
-            this.type.ReadOnly = true;
-            this.type.Width = 60;
+            this.saveImage.Filter = "PNG (*.png) | *.png; | BMP (*.bmp) | *.bmp; | JPEG (*.jpg, *.jpeg) | *.jpg; *.jpe" +
+    "g";
+            this.saveImage.Title = "Save TileSet";
             // 
-            // direction
+            // saveQuadtree
             // 
-            this.direction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.direction.HeaderText = "Direction";
-            this.direction.Name = "direction";
-            this.direction.ReadOnly = true;
-            this.direction.Width = 85;
+            this.saveQuadtree.Filter = "TXT FIle(*.txt) | *.txt";
             // 
-            // l
+            // openFileTxt
             // 
-            this.l.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.l.HeaderText = "Location";
-            this.l.Name = "l";
-            this.l.ReadOnly = true;
-            this.l.Width = 82;
+            this.openFileTxt.Filter = "TXT FIle(*.txt) | *.txt";
             // 
             // MapEditorForm
             // 
@@ -1141,9 +1141,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapEditorForm_KeyDown);
             this.panel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.cPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSub)).EndInit();
             this.panel4.ResumeLayout(false);

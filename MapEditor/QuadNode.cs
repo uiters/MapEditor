@@ -42,7 +42,7 @@ namespace MapEditor
         private void CreateQuadNodeSub()
         {
             Size center = GetCenter(region);
-            if (center.Width < minSize.Width || center.Height < minSize.Height || objects.Count < 2 || level >= depth) return;
+            if (center.Width < minSize.Width || center.Height < minSize.Height || objects.Count < 2 || level > depth) return;
             else
             {
                 this.leftTop = new QuadNode(id * 10 + 1, level + 1, new Rectangle(region.Location, center));
@@ -55,9 +55,10 @@ namespace MapEditor
         public void Build(CObject obj)
         {
             objects.Add(obj);
+            CreateQuadNodeSub();
             if (leftBottom is null)
             {
-                CreateQuadNodeSub();
+                return;
             }
             else
             {
