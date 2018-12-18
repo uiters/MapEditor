@@ -426,7 +426,18 @@ namespace MapEditor
 
 
         }
-
+        private ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
+        }
         private void SaveTileSet(object parameter)
         {
             try
@@ -435,7 +446,13 @@ namespace MapEditor
                 string pathImage = (string)info[0];
                 string pathTxt = (string)info[1];
                 ImageFormat format = (ImageFormat)info[2];
-                imageSub.Save(pathImage, format);
+                ImageCodecInfo encoder = GetEncoder(format);
+                if (encoder is null) return;
+                System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
+                EncoderParameters encoderParameters = new EncoderParameters(1);
+                encoderParameters.Param[0] = new EncoderParameter(myEncoder, 100L);
+
+                imageSub.Save(pathImage, encoder, encoderParameters);
                 string text = tilesImage.Count + " " + rows + " " + cols + " " + width + " " + height + " " + Environment.NewLine + matrixCells.ToString();
                 SaveFileTXT(pathTxt, text);
             }
