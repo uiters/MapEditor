@@ -29,13 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapEditorForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.GroupBox();
+            this.openImage = new System.Windows.Forms.OpenFileDialog();
+            this.saveImage = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.saveQuadtree = new System.Windows.Forms.SaveFileDialog();
+            this.openFileTxt = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new MapEditor.CPanel();
             this.pictureBoxMain = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.GroupBox();
             this.cPanel1 = new MapEditor.CPanel();
             this.pictureBoxSub = new System.Windows.Forms.PictureBox();
             this.panel4 = new MapEditor.CPanel();
@@ -78,6 +83,11 @@
             this.cbbName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelTiles = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.bunifuThinButton27 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtSplitRows = new System.Windows.Forms.TextBox();
             this.btnSave = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnLoad = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label5 = new System.Windows.Forms.Label();
@@ -96,16 +106,14 @@
             this.txbWidth = new System.Windows.Forms.TextBox();
             this.checkBox = new MetroFramework.Controls.MetroCheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.openImage = new System.Windows.Forms.OpenFileDialog();
-            this.saveImage = new System.Windows.Forms.SaveFileDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.saveQuadtree = new System.Windows.Forms.SaveFileDialog();
-            this.openFileTxt = new System.Windows.Forms.OpenFileDialog();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txbQuality = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
-            this.panel2.SuspendLayout();
             this.cPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSub)).BeginInit();
             this.panel4.SuspendLayout();
@@ -149,6 +157,40 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Map";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.cPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.panel2.Location = new System.Drawing.Point(3, 581);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0);
+            this.panel2.Size = new System.Drawing.Size(1026, 92);
+            this.panel2.TabIndex = 0;
+            this.panel2.TabStop = false;
+            this.panel2.Text = "Tileset";
+            // 
+            // openImage
+            // 
+            this.openImage.Filter = "Image File (*.bmp, *.png, *.jpg, *.jpeg) | *.bmp; *.png; *.jpg; *.jpeg";
+            this.openImage.Title = "Open Map";
+            // 
+            // saveImage
+            // 
+            this.saveImage.Filter = "PNG (*.png) | *.png; | BMP (*.bmp) | *.bmp; | JPEG (*.jpg, *.jpeg) | *.jpg; *.jpe" +
+    "g";
+            this.saveImage.Title = "Save TileSet";
+            // 
+            // saveQuadtree
+            // 
+            this.saveQuadtree.Filter = "TXT FIle(*.txt) | *.txt";
+            // 
+            // openFileTxt
+            // 
+            this.openFileTxt.Filter = "TXT FIle(*.txt) | *.txt";
+            // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
@@ -172,21 +214,6 @@
             this.pictureBoxMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMain_MouseDown);
             this.pictureBoxMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseMove);
             this.pictureBoxMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMain_MouseUp);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.cPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel2.Location = new System.Drawing.Point(3, 581);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0);
-            this.panel2.Size = new System.Drawing.Size(1026, 92);
-            this.panel2.TabIndex = 0;
-            this.panel2.TabStop = false;
-            this.panel2.Text = "Tileset";
             // 
             // cPanel1
             // 
@@ -237,7 +264,7 @@
             this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox5.Location = new System.Drawing.Point(0, 926);
+            this.groupBox5.Location = new System.Drawing.Point(0, 1074);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
@@ -422,7 +449,7 @@
             this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox7.Location = new System.Drawing.Point(0, 824);
+            this.groupBox7.Location = new System.Drawing.Point(0, 972);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(0);
@@ -482,7 +509,7 @@
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox6.Location = new System.Drawing.Point(0, 464);
+            this.groupBox6.Location = new System.Drawing.Point(0, 612);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(0);
@@ -497,14 +524,14 @@
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -529,8 +556,8 @@
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            this.name.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            this.name.DefaultCellStyle = dataGridViewCellStyle4;
             this.name.HeaderText = "Name";
             this.name.Name = "name";
             this.name.ReadOnly = true;
@@ -664,7 +691,7 @@
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox4.Location = new System.Drawing.Point(0, 261);
+            this.groupBox4.Location = new System.Drawing.Point(0, 409);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
@@ -808,6 +835,14 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.txbQuality);
+            this.groupBox3.Controls.Add(this.labelTiles);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.bunifuThinButton27);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.txtSplitRows);
             this.groupBox3.Controls.Add(this.btnSave);
             this.groupBox3.Controls.Add(this.btnLoad);
             this.groupBox3.Controls.Add(this.label5);
@@ -821,10 +856,74 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(225, 92);
+            this.groupBox3.Size = new System.Drawing.Size(225, 240);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TileSet Setting";
+            // 
+            // labelTiles
+            // 
+            this.labelTiles.AutoSize = true;
+            this.labelTiles.Location = new System.Drawing.Point(110, 50);
+            this.labelTiles.Name = "labelTiles";
+            this.labelTiles.Size = new System.Drawing.Size(38, 17);
+            this.labelTiles.TabIndex = 24;
+            this.labelTiles.Text = "4 X 0";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 50);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(61, 17);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "Tiles Size";
+            // 
+            // bunifuThinButton27
+            // 
+            this.bunifuThinButton27.ActiveBorderThickness = 1;
+            this.bunifuThinButton27.ActiveCornerRadius = 10;
+            this.bunifuThinButton27.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton27.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton27.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton27.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton27.BackgroundImage")));
+            this.bunifuThinButton27.ButtonText = "Split again";
+            this.bunifuThinButton27.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton27.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton27.IdleBorderThickness = 1;
+            this.bunifuThinButton27.IdleCornerRadius = 10;
+            this.bunifuThinButton27.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton27.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton27.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton27.Location = new System.Drawing.Point(123, 101);
+            this.bunifuThinButton27.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuThinButton27.Name = "bunifuThinButton27";
+            this.bunifuThinButton27.Size = new System.Drawing.Size(95, 35);
+            this.bunifuThinButton27.TabIndex = 20;
+            this.bunifuThinButton27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton27.Click += new System.EventHandler(this.bunifuThinButton27_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(13, 77);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(65, 17);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Split rows";
+            // 
+            // txtSplitRows
+            // 
+            this.txtSplitRows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSplitRows.BackColor = System.Drawing.Color.White;
+            this.txtSplitRows.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txtSplitRows.Location = new System.Drawing.Point(109, 73);
+            this.txtSplitRows.Name = "txtSplitRows";
+            this.txtSplitRows.Size = new System.Drawing.Size(109, 25);
+            this.txtSplitRows.TabIndex = 18;
+            this.txtSplitRows.Text = "4";
             // 
             // btnSave
             // 
@@ -844,10 +943,10 @@
             this.btnSave.IdleFillColor = System.Drawing.Color.White;
             this.btnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.Location = new System.Drawing.Point(121, 44);
+            this.btnSave.Location = new System.Drawing.Point(13, 189);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(95, 35);
+            this.btnSave.Size = new System.Drawing.Size(205, 35);
             this.btnSave.TabIndex = 18;
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -870,7 +969,7 @@
             this.btnLoad.IdleFillColor = System.Drawing.Color.White;
             this.btnLoad.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnLoad.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnLoad.Location = new System.Drawing.Point(13, 44);
+            this.btnLoad.Location = new System.Drawing.Point(13, 101);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(95, 35);
@@ -1103,24 +1202,34 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "X";
             // 
-            // openImage
+            // label18
             // 
-            this.openImage.Filter = "Image File (*.bmp, *.png, *.jpg, *.jpeg) | *.bmp; *.png; *.jpg; *.jpeg";
-            this.openImage.Title = "Open Map";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 161);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(88, 17);
+            this.label18.TabIndex = 28;
+            this.label18.Text = "Image Quality";
             // 
-            // saveImage
+            // txbQuality
             // 
-            this.saveImage.Filter = "PNG (*.png) | *.png; | BMP (*.bmp) | *.bmp; | JPEG (*.jpg, *.jpeg) | *.jpg; *.jpe" +
-    "g";
-            this.saveImage.Title = "Save TileSet";
+            this.txbQuality.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbQuality.BackColor = System.Drawing.Color.White;
+            this.txbQuality.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txbQuality.Location = new System.Drawing.Point(108, 157);
+            this.txbQuality.Name = "txbQuality";
+            this.txbQuality.Size = new System.Drawing.Size(80, 25);
+            this.txbQuality.TabIndex = 27;
+            this.txbQuality.Text = "80";
             // 
-            // saveQuadtree
+            // label19
             // 
-            this.saveQuadtree.Filter = "TXT FIle(*.txt) | *.txt";
-            // 
-            // openFileTxt
-            // 
-            this.openFileTxt.Filter = "TXT FIle(*.txt) | *.txt";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(194, 161);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 17);
+            this.label19.TabIndex = 29;
+            this.label19.Text = "%";
             // 
             // MapEditorForm
             // 
@@ -1141,9 +1250,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapEditorForm_KeyDown);
             this.panel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.cPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSub)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -1243,6 +1352,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.DataGridViewTextBoxColumn direction;
         private System.Windows.Forms.DataGridViewTextBoxColumn l;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtSplitRows;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton27;
+        private System.Windows.Forms.Label labelTiles;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txbQuality;
     }
 }
 

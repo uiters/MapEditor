@@ -35,6 +35,8 @@ namespace MapEditor
 
         private int rows;
         private int cols;
+        private int rowsTiles = 4;//row titles
+        private int colsTiles = 0;//titles
         private float zoom = 1.0f;
         private int depth = 10;
         private int minWidth = 128;
@@ -42,7 +44,7 @@ namespace MapEditor
         private bool isDrawCells = true;
         private bool isLoadTile = false;
         private bool success = false;
-
+        private int quality = 80;
         private StringBuilder matrixCells;
         private List<Bitmap> tilesImage;
         private Bitmap image;
@@ -142,13 +144,14 @@ namespace MapEditor
             pictureBoxMain.Invalidate();//refesh
         }
 
-        private void DrawCellsSub(int cols)
+        private void DrawCellsSub()
         {
             if (!isDrawCells || pictureBoxSub.Image is null) return;
             using (Graphics graphic = Graphics.FromImage(pictureBoxSub.Image))
             {
                 graphic.Clear(Color.Transparent);
-                DrawCols(graphic, pen, cols);
+                DrawCols(graphic, pen, colsTiles);
+                DrawRows(graphic, pen, rowsTiles);
             }
             pictureBoxSub.Invalidate();
         }
@@ -207,7 +210,7 @@ namespace MapEditor
         {
             isDrawCells = !isDrawCells;
             DrawCells();
-            DrawCellsSub(tilesImage.Count);
+            DrawCellsSub();
             if (!isDrawCells)
             {
                 ClearCells(pictureBoxMain);
@@ -277,9 +280,10 @@ namespace MapEditor
         {
             if (isLoadTile || image is null) return;//lock
             pictureBox1.Show();
-
-            tilesImage.Clear();
-            matrixCells.Clear();
+            CheckValueTrue(txtSplitRows, 4, out rowsTiles);
+            tilesImage.Clear(); //clear tiles
+            matrixCells.Clear(); //clear matrixcells
+            ClearCells(pictureBoxSub); //clear dash sub
             pictureBoxSub.BackgroundImage = null;
             pictureBoxSub.Image = null;
             GC.Collect();
@@ -347,9 +351,8 @@ namespace MapEditor
                 if (pictureBoxSub.InvokeRequired)
                 {
                     pictureBoxSub.Invoke(new Action(() =>
-                    {
-                        SetSizeSub((int)width, (int)height);
-                    }));
+                        SetSizeSub((int)width, (int)height)
+                    ));
                 }
                 else SetSizeSub((int)width, (int)height);
                 if (pictureBoxSub.BackgroundImage == null)
@@ -357,17 +360,12 @@ namespace MapEditor
                     return;
                 }
                 success = true;
-                using (Graphics graphic = Graphics.FromImage(imageSub))
-                {
-                    for (int i = 0; i < tilesImage.Count; ++i)
-                    {
-                        graphic.DrawImage(tilesImage[i], new RectangleF(i * width, 0, width, height), new RectangleF(0, 0, width, height), GraphicsUnit.Pixel);
-                    }
-                }
-                pictureBoxSub.BackgroundImage = imageSub;
-                if (isDrawCells)
-                    using (Graphics graphic = Graphics.FromImage(pictureBoxSub.Image))
-                        DrawCols(graphic, pen, tilesImage.Count);
+
+                SplitImageTiles();
+                if (labelTiles.InvokeRequired)
+                    labelTiles.Invoke(new Action(() => labelTiles.Text = rowsTiles + " X " + colsTiles));
+                else labelTiles.Text = rowsTiles + " X " + colsTiles;
+
             }
             catch (Exception ex)
             {
@@ -380,14 +378,46 @@ namespace MapEditor
             }
         }
 
+        private void SplitImageTiles()
+        {
+            //like 300 / 4 = 0 
+            // 299 / 4 = 1
+            int colSurplus = (tilesImage.Count % 4) == rowsTiles ? 0 : 1;
+
+            //round cols 300 / 4 = 75cells in row 
+            // 299 / 4 = 75cells (row last has 74 cells)
+            colsTiles = tilesImage.Count / rowsTiles + colSurplus; 
+
+            int indexTiles = 0;
+            using (Graphics graphic = Graphics.FromImage(imageSub))
+            {
+                for (int row = 0; row < rowsTiles; ++row)
+                {
+                    for (int col = 0; col < colsTiles; ++col)
+                    {
+                        if (indexTiles >= tilesImage.Count) break;
+                        graphic.DrawImage(tilesImage[indexTiles], new RectangleF(col * width, row * height, width, height), new RectangleF(0, 0, width, height), GraphicsUnit.Pixel);
+                        indexTiles += 1;
+                    }
+                }
+            }
+            pictureBoxSub.BackgroundImage = imageSub;
+            if (isDrawCells)
+                using (Graphics graphic = Graphics.FromImage(pictureBoxSub.Image))
+                {
+                    DrawCols(graphic, pen, colsTiles);
+                    DrawRows(graphic, pen, rowsTiles);
+                }
+        }
+
         private void SetSizeSub(int width, int height)
         {
             if (tilesImage.Count == 0)
             {
                 return;
             }
-            pictureBoxSub.Width = width * tilesImage.Count;
-            pictureBoxSub.Height = height;
+            pictureBoxSub.Width = (width * tilesImage.Count) / rowsTiles;
+            pictureBoxSub.Height = height * rowsTiles;
             pictureBoxSub.BackgroundImage = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
             pictureBoxSub.Image = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
             imageSub = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
@@ -415,6 +445,7 @@ namespace MapEditor
             saveImage.FileName = Path.GetFileName(openImage.FileName);
             if (saveImage.ShowDialog() == DialogResult.OK)
             {
+                CheckValueTrue(txbQuality, 1, 100, 80, out quality);
                 pictureBox1.Show();
                 isLoadTile = true;
                 GetImageSave(out string pathImage, out string pathTxt, out ImageFormat format);
@@ -450,10 +481,13 @@ namespace MapEditor
                 if (encoder is null) return;
                 System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
                 EncoderParameters encoderParameters = new EncoderParameters(1);
-                encoderParameters.Param[0] = new EncoderParameter(myEncoder, 100L);
+                encoderParameters.Param[0] = new EncoderParameter(myEncoder, quality);
 
                 imageSub.Save(pathImage, encoder, encoderParameters);
-                string text = tilesImage.Count + " " + rows + " " + cols + " " + width + " " + height + " " + Environment.NewLine + matrixCells.ToString();
+                string text = tilesImage.Count + " " + rows + " " + cols + " " + width + " " + height + " ";
+                text += rowsTiles + " " + colsTiles;
+                text += Environment.NewLine + matrixCells.ToString();
+
                 SaveFileTXT(pathTxt, text);
             }
             catch (Exception ex)
@@ -681,7 +715,7 @@ namespace MapEditor
 
         private void CheckValueTrue(TextBox textBox,int defaultValue, out int value)
         {
-            if (int.TryParse(textBox.Text,out value))
+            if (int.TryParse(textBox.Text, out value))
             {
                 if(value > 0)
                     return;
@@ -874,6 +908,35 @@ namespace MapEditor
             Rectangle rect = new Rectangle(x, y, width, height);
             AddGridView(rect, names[idName], type, direction);
             return new CObject(id, rect, colors[idName], idName, idType, obj[7] == "1");
+        }
+        void CheckValueTrue(TextBox textBox, int minValue, int maxValue, int defaultValue, out int value)
+        {
+            if (int.TryParse(textBox.Text, out value))
+            {
+                if (value < minValue || value > maxValue)
+                {
+                    textBox.Text = defaultValue.ToString();
+                    value = defaultValue;
+                }
+            }
+
+
+        }
+        private void bunifuThinButton27_Click(object sender, EventArgs e)
+        {
+            if (isLoadTile) return;
+            if (tilesImage.Count == 0)
+            {
+                MessageBox.Show("You must load tiles map before you try to split tiles again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                CheckValueTrue(txtSplitRows, 4, out rowsTiles);
+                SetSizeSub((int)width, (int)height);
+                SplitImageTiles();
+                GC.Collect();
+                labelTiles.Text = rowsTiles + " X " + colsTiles;
+            }
         }
     }
 }
