@@ -348,6 +348,9 @@ namespace MapEditor
                     matrixCells.AppendLine();
                 }
 
+                CalColsTiles();
+
+
                 if (pictureBoxSub.InvokeRequired)
                 {
                     pictureBoxSub.Invoke(new Action(() =>
@@ -378,7 +381,7 @@ namespace MapEditor
             }
         }
 
-        private void SplitImageTiles()
+        private void CalColsTiles()
         {
             //like 300 / 4 = 0 
             // 299 / 4 = 1
@@ -386,7 +389,10 @@ namespace MapEditor
 
             //round cols 300 / 4 = 75cells in row 
             // 299 / 4 = 75cells (row last has 74 cells)
-            colsTiles = tilesImage.Count / rowsTiles + colSurplus; 
+            colsTiles = tilesImage.Count / rowsTiles + colSurplus;
+        }
+        private void SplitImageTiles()
+        {
 
             int indexTiles = 0;
             using (Graphics graphic = Graphics.FromImage(imageSub))
@@ -416,7 +422,7 @@ namespace MapEditor
             {
                 return;
             }
-            pictureBoxSub.Width = (width * tilesImage.Count) / rowsTiles;
+            pictureBoxSub.Width = width * colsTiles;
             pictureBoxSub.Height = height * rowsTiles;
             pictureBoxSub.BackgroundImage = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
             pictureBoxSub.Image = new Bitmap(pictureBoxSub.Width, pictureBoxSub.Height);
@@ -932,6 +938,7 @@ namespace MapEditor
             else
             {
                 CheckValueTrue(txtSplitRows, 4, out rowsTiles);
+                CalColsTiles();
                 SetSizeSub((int)width, (int)height);
                 SplitImageTiles();
                 GC.Collect();
