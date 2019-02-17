@@ -19,7 +19,7 @@ MapEditor Cho Nhập Môn Phát Triển Game
 * [Export objects in map to file](#Object-file)
 * [Build quatree and export to file](#Quadtree)
 ## ⚙️ Installation
-* Build with visual studio. You can add reference
+* Build with visual studio 2017. You can add reference
 **Right click project** -> **Add** -> **Reference** -> **Choose Browse** -> **select all .dll in \MapEditor\Resources**
 * [File Install](https://github.com/tvc12/MapEditor/releases/download/v1.0.0/Map.Editor.zip)
 ## 📖 Documents
