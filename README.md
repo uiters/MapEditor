@@ -3,13 +3,13 @@ MapEditor Cho Nhập Môn Phát Triển Game
 
 ![](MapEditor/Resources/Image/LoadTiles.JPG)
 ## 📑 Contents
-* [Features](#features)
-* [Installation](#installation)
-* [Documents](#documents)
-* [Build with](#build-with)
-* [Some Screens](#some-screens)
-* [Bugs and Issues](#bugs-and-issues)
-* [License](#license)
+* [Features](#-features)
+* [Installation](#-installation)
+* [Documents](#-documents)
+* [Build with](#-build-with)
+* [Some Screens](#-some-screens)
+* [Bugs and Issues](#-bugs-and-issues)
+* [License](#-license)
 ## 📌 Features
 * [Load image](#map)
 * [Cut tiles](#map-tile)
