@@ -3,21 +3,20 @@ MapEditor Cho Nhập Môn Phát Triển Game
 
 ![](MapEditor/Resources/Image/LoadTiles.JPG)
 ## 📑 Contents
-* [Features](#-features)
-* [Installation](#-installation)
-* [Documents](#-documents)
-* [Build with](#-build-with)
-* [Some Screens](#-some-screens)
-* [Bugs and Issues](#-bugs-and-issues)
-* [Authors](#-authors)
-* [License](#-license)
+* [Features](#features)
+* [Installation](#installation)
+* [Documents](#documents)
+* [Build with](#build-with)
+* [Some Screens](#some-screens)
+* [Bugs and Issues](#bugs-and-issues)
+* [License](#license)
 ## 📌 Features
 * [Load image](#map)
-* [Cut tiles](#Map-Tile)
-* [Export tiles to file txt](#Map-encode)
+* [Cut tiles](#map-tile)
+* [Export tiles to file txt](#map-encode)
 * [Add objects to map](#add-objects)
-* [Export objects in map to file](#Object-file)
-* [Build quatree and export to file](#Quadtree)
+* [Export objects in map to file](#object-file)
+* [Build quatree and export to file](#quadtree)
 ## ⚙️ Installation
 * Build with visual studio 2017. You can add reference
 **Right click project** -> **Add** -> **Reference** -> **Choose Browse** -> **select all .dll in \MapEditor\Resources**
@@ -37,7 +36,5 @@ MapEditor Cho Nhập Môn Phát Triển Game
 ### Quadtree![](MapEditor/Resources/Image/QuadTree.JPG)
 ## 🐛 Bugs and Issues
 * Have a bug or an issue with this project? [Open a new issue](https://github.com/tvc12/MapEditor/issues/new) here on GitHub.
-## 😸 Authors
-* **Vi Chi Thien** - [tvc12](https://github.com/tvc12) 😸
 ## © License
 * [MIT](LICENSE)  
